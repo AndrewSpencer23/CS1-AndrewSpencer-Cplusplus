@@ -46,7 +46,15 @@ int main()
     string line2 = "/ @ @ \\   *      ASCII Lab      *   (='.'=)\n";
     cout << line2;
     //FIXME6: use variable to print the second line line of the graphic #fixed#
-    //FIXME7: print the third line of the graphics
+
+    string line3 = "( > 0 < )    *   By: Andrew Spencer   *    (\")_(\")\n";
+    cout << line3;
+
+    //FIXME7: print the third line of the graphics #fixed#
+
+    string line4 = ">>x<<    *            CSCI 111*\n";
+    cout << line4;
+
     //FIXME8: use variable to print the fourth line
     //FIXME9: use variable to print the fifth line
     //Note: You can add more lines or print more ASCII arts of your choice if you'd like...
