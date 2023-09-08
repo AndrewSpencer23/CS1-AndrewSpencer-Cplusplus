@@ -14,6 +14,7 @@
 
 #include <iostream> //library for input and output
 #include <string> //library for string data
+
  
 using namespace std; //resolve cout, cin, and endl names
  
@@ -43,24 +44,37 @@ int main()
     string line1 = "  |\\_/|   **********************    (\\_/)\n";
     cout << line1;
 
-    string line2 = "/ @ @ \\   *      ASCII Lab      *   (='.'=)\n";
+    string line2 = " / @ @ \\   *      ASCII Lab      *   (='.'=)\n";
     cout << line2;
     //FIXME6: use variable to print the second line line of the graphic #fixed#
 
-    string line3 = "( > 0 < )    *   By: Andrew Spencer   *    (\")_(\")\n";
+    string line3 = "( > 0 < )  *  By: Andrew Spencer  *    (\")_(\")\n";
     cout << line3;
 
     //FIXME7: print the third line of the graphics #fixed#
 
-    string line4 = ">>x<<    *            CSCI 111*\n";
+    string line4 = "  >>x<<    *        CSCI 111     *\n";
     cout << line4;
 
-    //FIXME8: use variable to print the fourth line
-    //FIXME9: use variable to print the fifth line
+    //FIXME8: use variable to print the fourth line #fixed#
+
+    string line5 = "  / O \\  *****************************\n";
+    cout << line5;
+    //FIXME9: use variable to print the fifth line #fixed#
+
     //Note: You can add more lines or print more ASCII arts of your choice if you'd like...
 
-    cout << "\nGood bye... hit enter to exit the program: " << '\n';
-    //FIXME10: make the console wait for user input
+    //This code was found on stackoverflow: https://stackoverflow.com/questions/22274228/how-do-you-take-in-the-enter-key-as-an-input
+    cout << "\nGood bye... hit enter to exit the program: ";
 
-    return 0; //exit program by returning 0 status to the system
+    char c;
+
+    c = cin.get();           // read next character without extracting it
+
+    if (c == '\n') return 0;  // linefeed (Enter Key) so exit
+
+    
+    
+    
+    //FIXME10: make the console wait for user input
 }
