@@ -22,7 +22,8 @@ int main()
     cout << "Enter your last name: \n";
     cin >> lastName;
 
-    cout << "Welcome to Hangman " << firstName << " " << lastName << ", it is nice to meet you!\n" << endl;
+    cout << "Welcome to Hangman " << firstName << " " << lastName << ", it is nice to meet you!\n\nThe game is currently under construction... you'll be able to play in a few weeks...\n" << endl;
+
 
     return 0;
 }
