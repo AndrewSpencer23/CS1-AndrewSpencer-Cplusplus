@@ -24,6 +24,11 @@ int main()
 
     cout << "Welcome to Hangman " << firstName << " " << lastName << ", it is nice to meet you!\n\nThe game is currently under construction... you'll be able to play in a few weeks...\n" << endl;
 
-
+    cout << "Stage 0:\n     |-----------------\n     |/     |\n     |\n     |\n     |\n     |\n     |\n===========\n\n";
+    cout << "Stage 1:\n     |-----------------\n     |      |\n     |      O\n     |\n     |\n     |\n     |\n===========\n\n";
+    cout << "Stage 2:\n     |-----------------\n     |      |\n     |      O\n     |      |\n     |\n     |\n     |\n===========\n\n";
+    cout << "Stage 3:\n     |-----------------\n     |      |\n     |      O\n     |     /|\\\n     |\n     |\n     |\n===========\n\n";
+    cout << "Stage 4:\n     |-----------------\n     |      |\n     |      O\n     |     /|\\\n     |     /\n     |\n     |\n===========\n\n";
+    
     return 0;
 }
