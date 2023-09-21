@@ -49,7 +49,7 @@ void greetUser(string fullName) {
 float getValues (float&) {
     float radius;
     cout << "Enter a radius to be calculated: ";
-    cin >> radius >> endl;
+    cin >> radius;
     return radius;
 }
 
