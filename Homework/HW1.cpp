@@ -11,7 +11,6 @@ using namespace std; //resolve cout, cin, and endl names
 
 int main()
 {   
-    //FIXME3: declare a variable to store name #fixed#
 
     string firstName;
     string lastName;
