@@ -69,10 +69,14 @@ int main()
         printf("(x2, y2) = (%d, %d)\n", x2, y2);
         cout << "The points that you have chosen, x1: " << x1 << ", y1: " << y1 << ", x2: " << x2 << ", y2: " << y2 << endl;
 
-        //FIXME4 - Call test function
-        
+        //FIXME4 - Call test function #fixed#
 
-        //FIXME5 - call findDistance function passing proper arguments
+        test();
+
+        //FIXME5 - call findDistance function passing proper arguments #fixed#
+
+        findDistance(x1, y1, x2, y2);
+        
         //FIXME6 – Using printf function display the returned distance with proper description
     }
 
