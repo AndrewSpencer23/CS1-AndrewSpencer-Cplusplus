@@ -79,7 +79,7 @@ int main()
         finaldistance = findDistance(x1, y1, x2, y2);
         printf("The distance between the two points = (%d)\n", finaldistance);
         
-        //FIXME6 – Using printf function display the returned distance with proper description
+        //FIXME6 – Using printf function display the returned distance with proper description #fixed#
 
         
 
@@ -92,13 +92,11 @@ int main()
     cout << "\nGood bye..." << endl;
     return 0;
 }
-// 1. Define a function called findDistance(…) that takes four parameters x1, y1 and x2, y2 as two points
-//        a. finds the distance between them using the equation: √((x2-x1)^2 + (y2-y1)^2)
-//        b. returns the calculated distance value
 
 double findDistance(int x1, int y1, int x2, int y2)
 {
-    // FIXME7 - Find the distance between (x1, y1) and (x2, y2)
+    // FIXME7 - Find the distance between (x1, y1) and (x2, y2) #fixed#
+
     int distance;
     distance = sqrt((pow(x2-x1, 2)) + (pow(y2-y1, 2)));
 
@@ -122,6 +120,8 @@ void test()
     float result3 =  findDistance(1, 3, 20, 1);
     float expected3 = 19.10497317;
     assert( fabs(result3 - expected3) >= epsilon); //accept the result if it's less than the error of margin
-    // FIXME8 - add at least two more test cases
+
+    // FIXME8 - add at least two more test cases #fixed#
+    
     cerr << "all tests passed..." << endl;
 }
