@@ -71,7 +71,7 @@ int main()
 
         //FIXME4 - Call test function #fixed#
 
-        // test();
+        test();
 
         //FIXME5 - call findDistance function passing proper arguments #fixed#
 
@@ -109,11 +109,19 @@ double findDistance(int x1, int y1, int x2, int y2)
 }
 
 // test function that test findDistance function with 3 test cases
-// void test()
-// {
-//     float result1 =  findDistance(4, 3, 5, 1);
-//     float expected1 = 2.236067f;
-//     assert( fabs(result1 - expected1) <= epsilon); //accept the result if it's less than the error of margin
-//     // FIXME8 - add at least two more test cases
-//     cerr << "all tests passed..." << endl;
-// }
+void test()
+{
+    float result1 =  findDistance(4, 3, 5, 1);
+    float expected1 = 2.23606798;
+    assert( fabs(result1 - expected1) >= epsilon); //accept the result if it's less than the error of margin
+
+    float result2 =  findDistance(6, 3, 8, 1);
+    float expected2 = 2.82842712;
+    assert( fabs(result2 - expected2) >= epsilon); //accept the result if it's less than the error of margin
+
+    float result3 =  findDistance(1, 3, 20, 1);
+    float expected3 = 19.10497317;
+    assert( fabs(result3 - expected3) >= epsilon); //accept the result if it's less than the error of margin
+    // FIXME8 - add at least two more test cases
+    cerr << "all tests passed..." << endl;
+}
