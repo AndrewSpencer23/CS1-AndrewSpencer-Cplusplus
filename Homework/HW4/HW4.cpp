@@ -23,6 +23,138 @@
 #include <cstdio>
 #include <string>
 
+using namespace std;
+
+void printMenu();
+void getNumbers(double &, double &, double &, double &, double &);
+double findSum(const double &, const double &, const double &, const double &, const double &);
+double findProduct(const double &, const double &, const double &, const double &, const double &);
+double findAverage(const double &, const double &, const double &, const double &, const double &);
+double findLargest(const double &, const double &, const double &, const double &, const double &);
+double findSmallest(const double &, const double &, const double &, const double &, const double &);
+double findMod(const double &, const double &, const double &, const double &, const double &);
+void test();
+bool program();
+
+void clearScreen() {
+    // use "cls" in windows and "clear" command in Mac and Linux
+    #ifdef _WIN32
+        system("clS");
+    #else
+        system("clear");
+    #endif
+}
+
+
+int main(int argc, char* argv[])  {
+        bool keepRunning = true;
+    if(argc == 2 && string(argv[1]) == "test") {
+        test();
+        exit(EXIT_SUCCESS); // exit the program
+    }
+    else {
+        // this loop will keep the program running until user wants to quit
+        while (true) {
+            if (!program()) // call program
+                break; // break loop if program returned false
+            cin.ignore(100, '\n');
+            cout << "Enter to continue...";
+            cin.get();
+            clearScreen();
+        }
+    }
+    cin.ignore(100, '\n');
+    cout << "Enter to quit the program.\n";
+    cout << "Good bye..." << endl;
+    cin.get();
+    return 0;
+}
+
+
+
+bool program() {
+    int option = 1; // variable to store user entered option
+    double num1=0, num2=0; // variables to store two numbers entered by user
+    // display menu options
+    printMenu();
+    // Input validation
+    do {
+        if (cin >> option && option >= 1 && option <= 8) {
+            //input is valid, break loop
+            break;
+        }
+        else {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid option, please enter a value between 1 and 8" << endl;
+        }
+    } while (true);
+            
+    // Call the function(s) or perform some operations based on user input
+    switch(option) {
+        case 1:
+        {
+            // get two numbers and store them into num1 and num2 using function
+            getNumbers(num1, num2);
+            // call findSum function; store the returned value in sum variable
+            double sum = findSum(num1, num2);
+            // display the result with proper description
+            printf("%.2f + %.2f = %.2f\n", num1, num2, sum);
+            break;
+        }
+        case 2:
+        {
+            getNumbers(num1, num2);
+            double difference = findProduct(num1, num2);
+            printf("%.2f - %.2f = %.2f\n", num1, num2, difference);
+            break;
+        }
+        case 3:
+        {
+            getTwoNumbers(num1, num2);
+            double product = findAverage(num1, num2);
+            printf("%.2f * %.2f = %.2f\n", num1, num2, product);
+            break;
+        }
+        case 4:
+        {
+            getNumbers(num1, num2);
+            double quotient = findLargest(num1, num2);
+            printf("%.2f / %.2f = %.2f\n", num1, num2, quotient);
+            break;
+        }
+
+        case 5:
+        {
+            // get two numbers
+            getNumbers(num1, num2);
+            // find the larger of the two numbers
+            double max = findSmallest(num1, num2);
+            // print the result
+            printf("Larger between %.2f & %.2f is %.2f\n", num1, num2, max);
+            break;
+        }
+        case 6:
+        {
+            getNumbers(num1, num2);
+            double smaller = findMod(num1, num2);
+            printf("Smaller between %.2f & %.2f is %.2f\n", num1, num2, smaller);
+            break;
+        }
+        case 7:
+        {
+            getNumbers(num1, num2);
+            double average = findAverage(num1, num2);
+            printf("(%.2f + %.2f)/2 = %.2f\n", num1, num2, average);
+            break;
+        }
+        case 8:
+            default: // must be option 8
+            return false; // exit the program
+        }
+    return true;
+}
+
 
 
 
