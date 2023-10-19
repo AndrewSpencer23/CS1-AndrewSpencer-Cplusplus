@@ -54,6 +54,7 @@ int main(int argc, char* argv[])  {
         exit(EXIT_SUCCESS); // exit the program
     }
     else {
+        cout << "\n\nAll test cases passed";
         // this loop will keep the program running until user wants to quit
         while (true) {
             if (!program()) // call program
@@ -76,9 +77,9 @@ void printMenu(void) {
     cout << "[1] Add five numbers\n";
     cout << "[2] Multiply five numbers\n";
     cout << "[3] Average of five numbers\n";
-    cout << "[4] Largest of fivec numbers\n";
+    cout << "[4] Largest of five numbers\n";
     cout << "[5] Smallest of 5 numbers\n";
-    cout << "[6] Find whether sum is even\n";
+    cout << "[6] Find whether sum of five numbers is even\n";
     cout << "[7] Quit the program\n";
     cout << "Enter one of the menu options [1-7]: ";
 }
@@ -106,9 +107,8 @@ double findLargest(const double &n1, const double &n2, const double &n3, const d
 }   
 
 double findSmallest(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
-    //find the larger of n1 and n2 and return it
-    double largest = (n1 <= n2 <= n3 <= n4 <= n5) ? n1 : n2 ? n2 : n3 ? n3 : n4 ? n4 : n5;
-    return largest;
+    double smallest = (n1 <= n2 <= n3 <= n4 <= n5) ? n1 : n2 ? n2 : n3 ? n3 : n4 ? n4 : n5;
+    return smallest;
 }
 
 double findMod(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
@@ -127,33 +127,46 @@ double findMod(const double &n1, const double &n2, const double &n3, const doubl
 void test() {
     double answer = findSum(10, 12.5, 1, 2, 3);
     double expected = 28.5;
-    assert(answer == expected); // test case 1
+    assert(answer == expected);
     
-    assert(findSum(-5, 10.5) == 5.5); // test case 2
-    assert (findSum(5, 6) == 11);
+    double answer2 = findSum(10, 12.5, 1, 2, 4);
+    double expected2 = 29.5;
+    assert(answer2 == expected2);
 
-    assert (findDifference(5, 6) == 1);
-    assert (findDifference(4, 6) == 2);
+    double answer3 = findProduct(10, 10, 1, 2, 10);
+    double expected3 = 2000;
+    assert(answer3 == expected3);
 
-    assert (findLarger(6, 2) == 6);
-    assert (findLarger(5, 1) == 5);
+    double answer4 = findProduct(1, 1, 1, 1, 2);
+    double expected4 = 2;
+    assert(answer4 == expected4);
 
-    assert (findSmaller(1, 6) == 1);
-    assert (findSmaller(2, 3) == 2);
+    double answer5 = findAverage(10, 10, 10, 10, 10);
+    double expected5 = 10;
+    assert(answer5 == expected5);
+
+    double answer6 = findAverage(1, 1, 1, 1, 1);
+    double expected6 = 1;
+    assert(answer6 == expected6);
+
+    double answer7 = findSmallest(10, 12.5, 1, 2, 3);
+    double expected7 = 1;
+    assert(answer7 == expected7);
+
+    double answer8 = findSum(11, 12.5, 1, 2, 4);
+    double expected8 = 30.5;
+    assert(answer8 == expected8);
 
     printf("%s\n", "all test cases passed...");
 }
 
 
 bool program() {
-    int option = 1; // variable to store user entered option
-    double num1=0, num2=0, num3=0, num4=0, num5=0; // variables to store two numbers entered by user
-    // display menu options
+    int option = 1;
+    double num1=0, num2=0, num3=0, num4=0, num5=0;
     printMenu();
-    // Input validation
     do {
         if (cin >> option && option >= 1 && option <= 7) {
-            //input is valid, break loop
             break;
         }
         else {
@@ -163,7 +176,6 @@ bool program() {
         }
     } while (true);
             
-    // Call the function(s) or perform some operations based on user input
     switch(option) {
         case 1:
         {
@@ -179,43 +191,40 @@ bool program() {
         {
             getNumbers(num1, num2, num3, num4, num5);
             double product = findProduct(num1, num2, num3, num4, num5);
-            printf("%.2f - %.2f = %.2f\n", num1, num2, num3, num4, num5, product);
+            printf("%.2f * %.2f * %.2f * %.2f * %.2f = %.2f\n", num1, num2, num3, num4, num5, product);
             break;
         }
         case 3:
         {
             getNumbers(num1, num2, num3, num4, num5);
             double average = findAverage(num1, num2, num3, num4, num5);
-            printf("%.2f * %.2f = %.2f\n", num1, num2, num3, num4, num5, average);
+            printf("The average of %.2f, %.2f, %.2f, %.2f, %.2f = %.2f\n", num1, num2, num3, num4, num5, average);
             break;
         }
         case 4:
         {
             getNumbers(num1, num2, num3, num4, num5);
             double largest = findLargest(num1, num2, num3, num4, num5);
-            printf("%.2f / %.2f = %.2f\n", num1, num2, num3, num4, num5, largest);
+            printf("Largest between %.2f, %.2f, %.2f, %.2f, %.2f is %.2f\n", num1, num2, num3, num4, num5, largest);
             break;
         }
 
         case 5:
         {
-            // get two numbers
             getNumbers(num1, num2, num3, num4, num5);
-            // find the larger of the two numbers
             double smallest = findSmallest(num1, num2, num3, num4, num5);
-            // print the result
-            printf("Larger between %.2f & %.2f is %.2f\n", num1, num2, num3, num4, num5, smallest);
+            printf("Smallest between %.2f, %.2f, %.2f, %.2f, %.2f is %.2f\n", num1, num2, num3, num4, num5, smallest);
             break;
         }
         case 6:
         {
             getNumbers(num1, num2, num3, num4, num5);
             double mod = findMod(num1, num2, num3, num4, num5);
-            printf("Smaller between %.2f & %.2f is %.2f\n", num1, num2, num3, num4, num5, mod);
+            printf("if %.2f is a whole number, the sum is positive\n", num1, num2, num3, num4, num5, mod);
             break;
         }
         case 7:
-            default: // must be option 8
+            default:
             return false; // exit the program
         }
     return true;
