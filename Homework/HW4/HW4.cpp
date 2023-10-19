@@ -22,6 +22,7 @@
 #include <cmath>
 #include <cstdio>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -70,6 +71,78 @@ int main(int argc, char* argv[])  {
     return 0;
 }
 
+void printMenu(void) {
+    cout << "\n\nMenu options:\n";
+    cout << "[1] Add five numbers\n";
+    cout << "[2] Multiply five numbers\n";
+    cout << "[3] Average of five numbers\n";
+    cout << "[4] Largest of fivec numbers\n";
+    cout << "[5] Smallest of 5 numbers\n";
+    cout << "[6] Find smaller of two numbers\n";
+    cout << "[7] Quit the program\n";
+    cout << "Enter one of the menu options [1-7]: ";
+}
+
+void getNumbers(double &n1, double &n2, double &n3, double &n4, double &n5) {
+    cout << "Enter five numbers separated by a space: ";
+    cin >> n1 >> n2 >> n3 >> n4 >> n5;
+}
+
+double findSum(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
+    return (n1 + n2 + n3 + n4 + n5);
+}
+
+double findProduct(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
+    return (n1 * n2 * n3 * n4 * n5);
+}
+
+double findAverage(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
+    return ((n1 + n2 + n3 + n4 + n5)/5);
+}
+
+double findLargest(const double &n1, const double &n2, const double &n2, const double &n2, const double &n2) {
+    double avg = (findSum(n1, n2) / 2);
+    // Note: this void function doesn't return a value but
+    // the average will be stored in avg
+    return avg;
+}   
+
+double findSmallest(const double &n1, const double &n2, const double &n2, const double &n2, const double &n2) {
+    //find the larger of n1 and n2 and return it
+    double larger = (n1 >= n2) ? n1 : n2;
+    return larger;
+}
+
+double findMod(const double &n1, const double &n2, const double &n2, const double &n2, const double &n2) {
+    double smaller = (n1 <= n2) ? n1 : n2;
+    return smaller;
+}
+
+
+void test() {
+    double answer = findSum(10, 12.5);
+    double expected = 22.5;
+    assert(answer == expected); // test case 1
+    
+    assert(findSum(-5, 10.5) == 5.5); // test case 2
+
+    assert (findSum(5, 6) == 11);
+
+    assert (findDifference(5, 6) == 1);
+    assert (findDifference(4, 6) == 2);
+
+    assert (findLarger(6, 2) == 6);
+    assert (findLarger(5, 1) == 5);
+
+    assert (findSmaller(1, 6) == 1);
+    assert (findSmaller(2, 3) == 2);
+
+
+    // FIXME9 – Using assert function write at least 2 test cases for each of the following functions #fixed#
+    // findDifference(), findProduct(), findLarger(),
+    // findSmaller(), findQuotient(), findAverage()
+    printf("%s\n", "all test cases passed...");
+}
 
 
 bool program() {
@@ -105,21 +178,21 @@ bool program() {
         case 2:
         {
             getNumbers(num1, num2);
-            double difference = findProduct(num1, num2);
+            double product = findProduct(num1, num2);
             printf("%.2f - %.2f = %.2f\n", num1, num2, difference);
             break;
         }
         case 3:
         {
-            getTwoNumbers(num1, num2);
-            double product = findAverage(num1, num2);
+            getNumbers(num1, num2);
+            double average = findAverage(num1, num2);
             printf("%.2f * %.2f = %.2f\n", num1, num2, product);
             break;
         }
         case 4:
         {
             getNumbers(num1, num2);
-            double quotient = findLargest(num1, num2);
+            double largest = findLargest(num1, num2);
             printf("%.2f / %.2f = %.2f\n", num1, num2, quotient);
             break;
         }
@@ -129,7 +202,7 @@ bool program() {
             // get two numbers
             getNumbers(num1, num2);
             // find the larger of the two numbers
-            double max = findSmallest(num1, num2);
+            double smallest = findSmallest(num1, num2);
             // print the result
             printf("Larger between %.2f & %.2f is %.2f\n", num1, num2, max);
             break;
@@ -137,18 +210,12 @@ bool program() {
         case 6:
         {
             getNumbers(num1, num2);
-            double smaller = findMod(num1, num2);
+            double mod = findMod(num1, num2);
             printf("Smaller between %.2f & %.2f is %.2f\n", num1, num2, smaller);
             break;
         }
-        case 7:
-        {
-            getNumbers(num1, num2);
-            double average = findAverage(num1, num2);
-            printf("(%.2f + %.2f)/2 = %.2f\n", num1, num2, average);
-            break;
         }
-        case 8:
+        case 7:
             default: // must be option 8
             return false; // exit the program
         }
