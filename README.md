@@ -1,4 +1,4 @@
-# CS1-ALSpencer
+# CS1-ALSpencer Home
 
 | Andrew | Spencer |
 |:---|:---|
