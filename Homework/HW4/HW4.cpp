@@ -100,17 +100,57 @@ double findProduct(const double &n1, const double &n2, const double &n3, const d
 double findAverage(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
     return ((n1 + n2 + n3 + n4 + n5)/5);
 }
-
+// I was stuck, so I went to stack overflow and it pointed me in this direction shown below.
 double findLargest(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
-    double largest = (n1 >= n2 >= n3 >= n4 >= n5) ? n1 : n2 ? n2 : n3 ? n3 : n4 ? n4 : n5;
+    double largest;
+        if ((n1>n2) and (n1>n3) and (n1>n4) and (n1>n5))
+        {    
+            largest = n1;
+        }
+        else if ((n2>n1) and (n2>n3) and (n2>n4) and (n2>n5))
+        {    
+            largest = n2;
+        }
+        else if ((n3>n1) and (n3>n2) and (n3>n4) and (n3>n5))
+        {    
+            largest = n3;
+        }
+        else if ((n4>n1) and (n4>n2) and (n4>n3) and (n4>n5))
+        {    
+            largest = n4;
+        }
+        else 
+        {
+        largest= n5;
+        }
     return largest;
-}   
-
-double findSmallest(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
-    double smallest = (n1 <= n2 <= n3 <= n4 <= n5) ? n1 : n2 ? n2 : n3 ? n3 : n4 ? n4 : n5;
-    return smallest;
 }
 
+// I was stuck, so I went to stack overflow and it pointed me in this direction shown below.
+double findSmallest(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
+    double smallest;
+        if ((n1 < n2) and (n1<n3) and (n1<n4) and (n1<n5))
+        {    
+            smallest = n1;
+        }
+        else if ((n2<n1) and (n2<n3) and (n2<n4) and (n2<n5))
+        {    
+            smallest = n2;
+        }
+        else if ((n3<n1) and (n3<n2) and (n3<n4) and (n3<n5))
+        {    
+            smallest = n3;
+        }
+        else if ((n4<n1) and (n4<n2) and (n4<n3) and (n4<n5))
+        {    
+            smallest = n4;
+        }
+        else 
+        {
+        smallest = n5;
+        }
+    return smallest;
+}
 double findMod(const double &n1, const double &n2, const double &n3, const double &n4, const double &n5) {
     int firstsum = findSum(n1, n2, n3, n4, n5);
     int second = 2;
