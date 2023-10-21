@@ -89,7 +89,7 @@ int main(int argc, char* argv[]) {
 }
 
 void printMenu(void) {
-    cout << "Menu options:\n";
+    cout << "\n\nMenu options:\n";
     cout << "[1] Add two numbers\n";
     cout << "[2] Subtract two numbers\n";
     cout << "[3] Multiply two numbers\n";
