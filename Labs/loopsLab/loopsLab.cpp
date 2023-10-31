@@ -31,7 +31,7 @@ void printTriangle(int height) {
 void printFlippedTriangle(int height) {
     int row = 1;
     while (row <= height) {
-        for(int col = 5; col>=row; col--)
+        for(int col = height; col>=row; col--)
             cout << "* ";
         row += 1;
         cout << endl;
@@ -55,7 +55,7 @@ void printSquare(int height) {
     int row = 1;
     while(row <= height)  {
         int col = 1;
-        for(int col = 1; col <= 5; col++)
+        for(int col = 1; col <= height; col++)
             cout << "* ";
         row += 1;
         cout << endl;
