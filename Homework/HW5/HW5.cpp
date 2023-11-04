@@ -54,11 +54,11 @@ void clearScreen() {
 
 int main(int argc, char* argv[]) {
     char keepPlaying = 'Y';
+    string fName;
+    getName();
     while (keepPlaying == 'y' || keepPlaying == 'Y') {
-        clearScreen();
         int guess;
         int randomNum;
-        getName();
         guess = readNumber();
         randomNum = randomNumber();
         checkGuess(guess, randomNum);
@@ -66,6 +66,7 @@ int main(int argc, char* argv[]) {
         cin >> keepPlaying;
         clearScreen();
     }
+    cout << "Thank you for playing the guessing game! Come back anytime." << endl << endl;
     return 0;
 }
 
