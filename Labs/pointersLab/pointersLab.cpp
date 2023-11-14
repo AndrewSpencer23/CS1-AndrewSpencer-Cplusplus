@@ -85,7 +85,17 @@ int main(int argc, char* argv[]) {
                 // store the data by dereferencing pointers
                 cin >> *num1 >> *num2;
                 // passing pointers to findLarger function
-                *numLarger = MyFunctions::findLarger(*num1, *num2);
+                *numLarger = MyFunctions::findLarger(num1, num2);
+                cout << "The larger number is: " << *numLarger << endl;
+                break;
+            case SUBTRACT:
+                cout << "Enter two whole numbers separated by space: ";
+                // store the data by dereferencing pointers
+                cin >> *num1 >> *num2;
+                // passing pointers to findSum function
+                *diff = MyFunctions::findDifference(*num1, *num2);
+                printf("%lld - %lld = %lld\n", *num2, *num1, *diff);
+                break;
             default:
                 break;
         }
@@ -103,7 +113,7 @@ void showMenu(void) {
     cout << "Enter one of the following menu options:\n";
     cout << "[1] Add two integers\n";
     cout << "[2] Multiply two integers\n";
-    cout << "[3] Subtract one integer from another\n";
+    cout << "[3] Find the difference between two integers\n";
     cout << "[4] Compare two integers and return the larger one\n";
     cout << "[5] Quit the program\n";
     cout << "Enter your choice [1-5]: ";
@@ -140,24 +150,29 @@ big_int MyFunctions::findSum(const big_int *n1, const big_int *n2) {
 }
 
 big_int MyFunctions::findLarger(const big_int *n1, const big_int *n2) {
+    int larger;
     if (*n1 == *n2) {
             cout << "\nYour two numbers are equal" << endl;
         }
         else if (*n1 < *n2) {
-            cout << endl << *n1 << " is less than " << *n2 << endl << endl;
+            larger = *n2;
         }
         else if (*n1 > *n2) {
-            cout << endl << *n1 << " is greater than " << *n2 << endl << endl;
+            larger = *n1;
         }
-    return 0;
+    return larger;
 }
 
-// FIXME8: define findLarger function declared inside MyFunctions namespace
+// FIXME8: define findLarger function declared inside MyFunctions namespace #fixed#
 // function returns the larger of the two given values
 
 large_int MyFunctions::findProduct(const large_int &n1, const large_int &n2) {
     return n1 * n2;
 }
 
-// FIXME9: define findDifference function declared inside MyFunctions namespace
+large_int MyFunctions::findDifference(const large_int &n1, const large_int &n2) {
+    return (n2) - (n1);
+}
+
+// FIXME9: define findDifference function declared inside MyFunctions namespace #fixed#
 // return the value of second big_int subtracted from the first
