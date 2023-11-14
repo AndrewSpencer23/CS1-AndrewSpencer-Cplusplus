@@ -136,7 +136,7 @@ OPERATION getOperation(char choice) {
         case '4':
             op = LARGER;
             break;
-        // FIXME7 - add case for LARGER
+        // FIXME7 - add case for LARGER #fixed#
         default:
             op = QUIT;
     }
