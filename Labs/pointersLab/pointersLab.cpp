@@ -76,10 +76,16 @@ int main(int argc, char* argv[]) {
                 cout << "Enter two whole numbers separated by space: ";
                 // store the data by dereferencing pointers
                 cin >> *num1 >> *num2;
-                // passing pointers to findSum function
+                // passing pointers to findProduct function
                 *prod = MyFunctions::findProduct(*num1, *num2);
                 printf("%lld * %lld = %lld\n", *num1, *num2, *prod);
                 break;
+            case LARGER:
+                cout << "Enter two whole numbers seperated by a space: ";
+                // store the data by dereferencing pointers
+                cin >> *num1 >> *num2;
+                // passing pointers to findLarger function
+                *numLarger = MyFunctions::findLarger(*num1, *num2);
             default:
                 break;
         }
@@ -89,8 +95,8 @@ int main(int argc, char* argv[]) {
         delete prod;
         cout << "Press Y/y to use the calculator again... Any other key to exit: ";
         cin >> continueGame;
-        return 0;
     }
+    return 0;
 }
 
 void showMenu(void) {
@@ -98,8 +104,9 @@ void showMenu(void) {
     cout << "[1] Add two integers\n";
     cout << "[2] Multiply two integers\n";
     cout << "[3] Subtract one integer from another\n";
-    cout << "[4] Quit the program\n";
-    cout << "Enter your choice [1-4]: ";
+    cout << "[4] Compare two integers and return the larger one\n";
+    cout << "[5] Quit the program\n";
+    cout << "Enter your choice [1-5]: ";
 }
 
 // function returns OPERATION type given character choice
@@ -116,6 +123,9 @@ OPERATION getOperation(char choice) {
         case '3':
             op = SUBTRACT;
             break;
+        case '4':
+            op = LARGER;
+            break;
         // FIXME7 - add case for LARGER
         default:
             op = QUIT;
@@ -127,6 +137,19 @@ OPERATION getOperation(char choice) {
 big_int MyFunctions::findSum(const big_int *n1, const big_int *n2) {
     // deference pointers n1 and n2 before adding their values
     return (*n1) + (*n2);
+}
+
+big_int MyFunctions::findLarger(const big_int *n1, const big_int *n2) {
+    if (*n1 == *n2) {
+            cout << "\nYour two numbers are equal" << endl;
+        }
+        else if (*n1 < *n2) {
+            cout << endl << *n1 << " is less than " << *n2 << endl << endl;
+        }
+        else if (*n1 > *n2) {
+            cout << endl << *n1 << " is greater than " << *n2 << endl << endl;
+        }
+    return 0;
 }
 
 // FIXME8: define findLarger function declared inside MyFunctions namespace
