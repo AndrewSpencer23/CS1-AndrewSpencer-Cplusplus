@@ -68,18 +68,19 @@ void testAnswer() {
 }
 
 // solving the problem for kattis
+
+// How to set restrictions on case sensitivity?
 void solve() {
     string line;
-    assert(line.length() <= 30);
-    cout << "Please enter a phrase to be processed for hiss or no hiss: ";
+    cout << "Please enter a string to be processed for hiss or no hiss: ";
     cin >> line;
     if (line.length() <= 30) {
         cout << answer(line) << endl;
     }
     else {
-        cout << "Your string is too long" << endl;
+        cout << "Your string is too long to be processed" << endl;
     }
     // string consists of only lowercase letters (no spaces) upto 30 chars
-    // FIXME5
+    // FIXME5 #fixed#
     // read string into line
 }

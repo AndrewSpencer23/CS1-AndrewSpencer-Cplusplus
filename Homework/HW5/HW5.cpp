@@ -36,6 +36,7 @@ percentage of times lost */
 #include <string>
 #include <cmath>
 #include <random>
+#include <cassert>
 
 using namespace std;
 
@@ -43,6 +44,7 @@ int getName();
 int randomNumber();
 int readNumber();
 int checkGuess(int, int);
+void test();
 
 void clearScreen() {
     #ifdef _WIN32
@@ -53,6 +55,7 @@ void clearScreen() {
 }
 
 int main(int argc, char* argv[]) {
+    test();
     char keepPlaying = 'Y';
     string fName;
     getName();
@@ -97,7 +100,8 @@ int randomNumber()  {
 }
 
 int checkGuess(int guess, int randomNum)  {
-    if (guess == randomNum) {
+    if (guess <= 20 && guess >= 1) {
+        if (guess == randomNum) {
             cout << "\nYour guess of " << guess << " is correct!!" << endl << endl;
         }
         else if (guess < randomNum) {
@@ -106,7 +110,18 @@ int checkGuess(int guess, int randomNum)  {
         else if (guess > randomNum) {
             cout << "\nYour guess of " << guess << " is larger than the random number." << endl << endl;
         }
-    cout << "The random number is: " << randomNum << endl << endl;
+        cout << "The random number is: " << randomNum << endl << endl;
+    }
+    else {
+        cout << "\nInvalid guess, Please enter a number between 1 and 20." << endl << endl;
+    }
     return 0;
 }
 
+void test() {
+    assert(randomNumber() == 5);
+    assert(randomNumber() == 9);
+    assert(randomNumber() == 12);
+    assert(randomNumber() == 18);
+    cerr << "All test cases passed." << endl;
+}
