@@ -52,13 +52,23 @@ void getValues(int* numPieces, int* pieces[*numPieces]) {
 
 int alicePieces(int* numPieces, int* pieces[*numPieces]) {
     // Function to calculate Alice's value
-    int aliceCalc;
+    int aliceCalc = 0;
+    if (*numPieces <= 15 && *numPieces >= 1) {
+        if (*pieces[0] >= *pieces[1]) {
+            aliceCalc = *pieces[0] + *pieces[1];
+        }
+    }
     return aliceCalc;
 }
 
 int bobPieces(int* numPieces, int* pieces[*numPieces]) {
     // Function to calculate Bob's value
-    int bobCalc;
+    int bobCalc = 0;
+    if (*numPieces <= 15 && *numPieces >= 1) {
+        if (*pieces[1] <= *pieces[2]) {
+            bobCalc = *pieces[2] + *pieces[3];
+        }
+    }
     return bobCalc;
 }
 
