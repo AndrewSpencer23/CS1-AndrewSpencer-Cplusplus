@@ -55,7 +55,6 @@ void clearScreen() {
 }
 
 int main(int argc, char* argv[]) {
-    test();
     char keepPlaying = 'Y';
     string fName;
     getName();
@@ -65,6 +64,7 @@ int main(int argc, char* argv[]) {
         guess = readNumber();
         randomNum = randomNumber();
         checkGuess(guess, randomNum);
+        cout << endl << checkGuess(guess, randomNum) << endl << endl;
         cout << "Would you like to play again? (y/n): ";
         cin >> keepPlaying;
         clearScreen();
@@ -101,26 +101,26 @@ int randomNumber()  {
 int checkGuess(int guess, int randomNum)  {
     if (guess <= 20 && guess >= 1) {
         if (guess == randomNum) {
-            cout << "\nYour guess of " << guess << " is correct!!" << endl << endl;
+            return 0;
         }
         else if (guess < randomNum) {
-            cout << "\nYour guess of " << guess << " is smaller than the random number." << endl << endl;
+            return -1;
         }
         else if (guess > randomNum) {
-            cout << "\nYour guess of " << guess << " is larger than the random number." << endl << endl;
+            return 2;
         }
         cout << "The random number is: " << randomNum << endl << endl;
     }
     else {
         cout << "\nInvalid guess, Please enter a number between 1 and 20." << endl << endl;
     }
-    return 0;
 }
 
 void test() {
-    assert(randomNumber() == 5);
-    assert(randomNumber() == 9);
-    assert(randomNumber() == 12);
-    assert(randomNumber() == 18);
+    // How to do test cases for this one?
+    assert(checkGuess(5,7) == randomNumber());
+    assert(checkGuess(5,2) == randomNumber());
+    assert(checkGuess(5,6) == randomNumber());
+    assert(checkGuess(5,9) == randomNumber());
     cerr << "All test cases passed." << endl;
 }

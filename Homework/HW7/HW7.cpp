@@ -30,6 +30,7 @@ int main(int argc, char* argv[]) {
     else {
         int* numPieces = 0;
         int* pieces[*numPieces];
+        // Calling getValues function
         getValues(numPieces, pieces[*numPieces]);
         if (*numPieces <= 15 && *numPieces >= 1) {
             cout << "Bob will recieve " << bobPieces(numPieces, pieces[*numPieces]) << "pieces." << endl << endl;
