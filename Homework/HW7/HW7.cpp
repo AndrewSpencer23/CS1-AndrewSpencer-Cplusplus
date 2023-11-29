@@ -24,15 +24,20 @@ void test();
 
 int main(int argc, char* argv[]) {
     // Main function
-    int* numPieces = 0;
-    int* pieces[*numPieces];
-    getValues(numPieces, pieces[*numPieces]);
-    if (*numPieces <= 15 && *numPieces >= 1) {
-        cout << "Bob will recieve " << bobPieces(numPieces, pieces[*numPieces]) << "pieces." << endl << endl;
-        cout << "Alice will recieve " << alicePieces(numPieces, pieces[*numPieces]) << "pieces." << endl << endl;
+    if (argc > 1 && string(argv[1]) == "test") {
+        test(); 
     }
-    delete pieces[*numPieces];
-    delete numPieces;
+    else {
+        int* numPieces = 0;
+        int* pieces[*numPieces];
+        getValues(numPieces, pieces[*numPieces]);
+        if (*numPieces <= 15 && *numPieces >= 1) {
+            cout << "Bob will recieve " << bobPieces(numPieces, pieces[*numPieces]) << "pieces." << endl << endl;
+            cout << "Alice will recieve " << alicePieces(numPieces, pieces[*numPieces]) << "pieces." << endl << endl;
+        }
+        delete pieces[*numPieces];
+        delete numPieces;
+    }
     return 0;
 }
 
