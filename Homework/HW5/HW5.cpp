@@ -90,7 +90,7 @@ int readNumber()  {
 
 int randomNumber()  {
     // Got this method from https://www.youtube.com/watch?v=oW6iuFbwPDg&t=203s]
-
+    
     int randomNum;
     random_device randNum;
     uniform_int_distribution<int> dist(1,20);

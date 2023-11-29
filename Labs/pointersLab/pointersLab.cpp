@@ -48,6 +48,7 @@ int main(int argc, char* argv[]) {
     large_int *diff = new large_int;
     big_int *numLarger = new big_int;
 
+
     // FIXME3 - declare dynamic variables to store difference and larger values #fixed#
     // Must use these variables to store the returned values from functions
 
@@ -103,6 +104,8 @@ int main(int argc, char* argv[]) {
         delete num2;
         delete sum;
         delete prod;
+        delete numLarger;
+        delete diff;
         cout << "Press Y/y to use the calculator again... Any other key to exit: ";
         cin >> continueGame;
     }
