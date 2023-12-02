@@ -16,9 +16,8 @@
 using namespace std;
 
 // Function prototypes
-void getValues(int*, int*);
-int alicePieces(int*, int*);
-int bobPieces(int*, int*);
+int alicePieces(int, int);
+int bobPieces(int, int);
 void test();
 
 
@@ -28,51 +27,41 @@ int main(int argc, char* argv[]) {
         test(); 
     }
     else {
-        int* numPieces = 0;
-        int* pieces[*numPieces];
+        int numPieces = 0;
+        cout << "Please enter the number of pieces to be divided amongst Bob and Alice: ";
+        cin >> numPieces;
+        int pieces[numPieces];
         // Calling getValues function
-        getValues(numPieces, pieces[*numPieces]);
-        if (*numPieces <= 15 && *numPieces >= 1) {
-            cout << "Bob will recieve " << bobPieces(numPieces, pieces[*numPieces]) << "pieces." << endl << endl;
-            cout << "Alice will recieve " << alicePieces(numPieces, pieces[*numPieces]) << "pieces." << endl << endl;
-        }
-        delete pieces[*numPieces];
-        delete numPieces;
-    }
-    return 0;
-}
-
-void getValues(int* numPieces, int* pieces[*numPieces]) {
-    cout << "Please enter the number of pieces to be divided amongst Bob and Alice: ";
-    cin >> *numPieces;
-    if (*numPieces <= 15 && *numPieces >= 1) {
-        for(int i = 0; i < *numPieces; i++) {
-            cout << "Please enter a value to be divided: ";
-            cin >> *pieces[i];
+        if (numPieces <= 15 && numPieces >= 1) {
+            cout << "Please enter " << numPieces << " values to be divided seperated by a space: ";
+            for(int i = 0; i < numPieces; i++) {
+                cin >> pieces[i];
         }
     }
     else {
         cout << "Invalid number of values chosen." << endl;
     }
+    }
+    return 0;
 }
 
-int alicePieces(int* numPieces, int* pieces[*numPieces]) {
+int alicePieces(int numPieces, int pieces[]) {
     // Function to calculate Alice's value
     int aliceCalc = 0;
-    if (*numPieces <= 15 && *numPieces >= 1) {
-        if (*pieces[0] >= *pieces[1]) {
-            aliceCalc = *pieces[0] + *pieces[1];
+    if (numPieces <= 15 && numPieces >= 1) {
+        if (pieces[0] >= pieces[1]) {
+            aliceCalc = pieces[0] + pieces[1];
         }
     }
     return aliceCalc;
 }
 
-int bobPieces(int* numPieces, int* pieces[*numPieces]) {
+int bobPieces(int numPieces, int pieces[]) {
     // Function to calculate Bob's value
     int bobCalc = 0;
-    if (*numPieces <= 15 && *numPieces >= 1) {
-        if (*pieces[1] <= *pieces[2]) {
-            bobCalc = *pieces[2] + *pieces[3];
+    if (numPieces <= 15 && numPieces >= 1) {
+        if (pieces[1] <= pieces[2]) {
+            bobCalc = pieces[2] + pieces[3];
         }
     }
     return bobCalc;
