@@ -16,8 +16,8 @@
 using namespace std;
 
 // Function prototypes
-int alicePieces(int, int);
-int bobPieces(int, int);
+int alicePieces(int, int[]);
+int bobPieces(int, int[]);
 void test();
 
 
@@ -41,6 +41,8 @@ int main(int argc, char* argv[]) {
     else {
         cout << "Invalid number of values chosen." << endl;
     }
+    cout << "Alice total: " << alicePieces(numPieces, &pieces[numPieces]) << endl;
+    cout << "Bob total: " << bobPieces(numPieces, &pieces[numPieces]) << endl;
     }
     return 0;
 }
@@ -49,9 +51,12 @@ int alicePieces(int numPieces, int pieces[]) {
     // Function to calculate Alice's value
     int aliceCalc = 0;
     if (numPieces <= 15 && numPieces >= 1) {
-        if (pieces[0] >= pieces[1]) {
-            aliceCalc = pieces[0] + pieces[1];
+        for(size_t i = 0; i < numPieces; i++) {
+            if (pieces[0] >= pieces[1]) {
+                aliceCalc = pieces[0] + pieces[1];
+            }
         }
+        
     }
     return aliceCalc;
 }
