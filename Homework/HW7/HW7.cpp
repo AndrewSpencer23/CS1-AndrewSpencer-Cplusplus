@@ -74,18 +74,16 @@ void sortPiecesArray(int numPieces, int pieces[], int tmpNum) {
 // Passes in existing variables to execute the calculation (Muuuuuch easier than what I was trying to do.)
 void calcPieces(int numPieces, int pieces[], int bobCalc, int aliceCalc) {
     // Function to calculate Alice's value
-    if (numPieces <= 15 && numPieces >= 1) {
-        for(int j = 0; j < numPieces-1; j++) {
-            for(int i = 0; i < numPieces-1; i++) {
-                if (pieces[i] > pieces[i+1]) {
-                    int tmpNum = pieces[i+1];
-                    pieces[i+1] = pieces[i];
-                    pieces[i] = tmpNum;
-                }
-            }
+    for(int i = 0; i < numPieces; i++) {
+        if (i%2 == 0) {
+            // If the value i in the array is even, added it to Alice's total.
+            aliceCalc = aliceCalc + pieces[i];
+        }
+        else {
+            // Otherwise, add it to Bob's total.
+            bobCalc = bobCalc + pieces[i];
         }
     }
-    return aliceCalc;
 }
 
 
