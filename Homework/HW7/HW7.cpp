@@ -16,10 +16,9 @@
 using namespace std;
 
 // Function prototypes
-void sortPieces(int, int[]);
+void sortPiecesArray(int, int[], int);
 int calcPieces(int, int[], int, int);
 void test();
-
 
 int main(int argc, char* argv[]) {
     // Main function
@@ -30,16 +29,19 @@ int main(int argc, char* argv[]) {
         int tmpNum;
         int bobCalc = 0;
         int aliceCalc = 0;
-        int numPieces = 0;
+        int numPieces;
         cout << "Please enter the number of pieces to be divided amongst Bob and Alice: ";
         cin >> numPieces;
-        int pieces[numPieces];
+        int *pieces = new int[numPieces];
         // Calling getValues function
         if (numPieces <= 15 && numPieces >= 1) {
             cout << "Please enter " << numPieces << " values to be divided seperated by a space: ";
             for(int i = 0; i < numPieces; i++) {
                 cin >> pieces[i];
         }
+        sortPiecesArray(numPieces, pieces, tmpNum);
+        calcPieces(numPieces, pieces, bobCalc, aliceCalc);
+        delete[] pieces;
     }
     else {
         cout << "Invalid number of values chosen." << endl;
@@ -72,16 +74,18 @@ void sortPiecesArray(int numPieces, int pieces[], int tmpNum) {
 
 // I got rid of my two int functions to calculate each of their values and instead used one void function that
 // Passes in existing variables to execute the calculation (Muuuuuch easier than what I was trying to do.)
-void calcPieces(int numPieces, int pieces[], int bobCalc, int aliceCalc) {
+void calcPieces(int numPieces, int *pieces[], int &bobCalc, int &aliceCalc) {
     // Function to calculate Alice's value
-    for(int i = 0; i < numPieces; i++) {
-        if (i%2 == 0) {
-            // If the value i in the array is even, added it to Alice's total.
-            aliceCalc = aliceCalc + pieces[i];
-        }
-        else {
-            // Otherwise, add it to Bob's total.
-            bobCalc = bobCalc + pieces[i];
+    if (numPieces <= 15 && numPieces >= 1) {
+        for(int i = 0; i < numPieces; i++) {
+            if (i%2 == 0) {
+                // If the value i in the array is even, add it to Alice's total.
+                aliceCalc = aliceCalc + *pieces[i];
+            }
+            else {
+                // If i is odd, add it to Bob's total.
+                bobCalc = bobCalc + *pieces[i];
+            }
         }
     }
 }
