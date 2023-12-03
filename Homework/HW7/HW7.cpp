@@ -41,8 +41,7 @@ int main(int argc, char* argv[]) {
     else {
         cout << "Invalid number of values chosen." << endl;
     }
-    cout << "Alice total: " << alicePieces(numPieces, &pieces[numPieces]) << endl;
-    cout << "Bob total: " << bobPieces(numPieces, &pieces[numPieces]) << endl;
+    cout << "Alice total: " << alicePieces(numPieces, pieces) << "   Bob total: " << bobPieces(numPieces, pieces) << endl;
     }
     return 0;
 }
@@ -51,12 +50,16 @@ int alicePieces(int numPieces, int pieces[]) {
     // Function to calculate Alice's value
     int aliceCalc = 0;
     if (numPieces <= 15 && numPieces >= 1) {
-        for(size_t i = 0; i < numPieces; i++) {
-            if (pieces[0] >= pieces[1]) {
-                aliceCalc = pieces[0] + pieces[1];
+        for(int j = 0; j < numPieces-1; j++) {
+            for(int i = 0; i < numPieces-1; i++) {
+                if (pieces[i] > pieces[i+1]) {
+                    int tmpNum = pieces[i+1];
+                    pieces[i+1] = pieces[i];
+                    pieces[i] = tmpNum;
+                }
             }
+            aliceCalc = 0 + pieces[j%1];
         }
-        
     }
     return aliceCalc;
 }
@@ -65,8 +68,15 @@ int bobPieces(int numPieces, int pieces[]) {
     // Function to calculate Bob's value
     int bobCalc = 0;
     if (numPieces <= 15 && numPieces >= 1) {
-        if (pieces[1] <= pieces[2]) {
-            bobCalc = pieces[2] + pieces[3];
+        for(int j = 0; j < numPieces-1; j++) {
+            for(int i = 0; i < numPieces-1; i++) {
+                if (pieces[i] > pieces[i+1]) {
+                    int tmpNum = pieces[i+1];
+                    pieces[i+1] = pieces[i];
+                    pieces[i] = tmpNum;
+                }
+            }
+            bobCalc = 0 + pieces[j%2];
         }
     }
     return bobCalc;
