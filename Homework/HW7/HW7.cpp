@@ -16,8 +16,8 @@
 using namespace std;
 
 // Function prototypes
-int alicePieces(int, int[]);
-int bobPieces(int, int[]);
+void sortPieces(int, int[]);
+int calcPieces(int, int[], int, int);
 void test();
 
 
@@ -27,6 +27,9 @@ int main(int argc, char* argv[]) {
         test(); 
     }
     else {
+        int tmpNum;
+        int bobCalc = 0;
+        int aliceCalc = 0;
         int numPieces = 0;
         cout << "Please enter the number of pieces to be divided amongst Bob and Alice: ";
         cin >> numPieces;
@@ -41,14 +44,36 @@ int main(int argc, char* argv[]) {
     else {
         cout << "Invalid number of values chosen." << endl;
     }
-    cout << "Alice total: " << alicePieces(numPieces, pieces) << "   Bob total: " << bobPieces(numPieces, pieces) << endl;
+    cout << "Alice total: " << aliceCalc << "   Bob total: " << bobCalc << endl;
     }
     return 0;
 }
 
-int alicePieces(int numPieces, int pieces[]) {
+// Instead of using two seperate functions to sort the array for each Bob and Alice,
+// I used one void function that utilizes boolean in order to sort the array.
+void sortPiecesArray(int numPieces, int pieces[], int tmpNum) {
+    bool sort = false;
+    if (numPieces <= 15 && numPieces >= 1) {
+        for(int i = 0; i < numPieces - 1; i++) {
+            sort = true;
+            for(int j = 0; j < (numPieces - i) -1; j++) {
+                if(pieces[j] <= pieces[j+1]) {
+                    tmpNum = pieces[j];
+                    pieces[j] = pieces[j+1];
+                    pieces[j+1] = tmpNum;
+                    sort = false;
+                }
+            }
+            if (sort)
+                break;
+        }
+    }
+}
+
+// I got rid of my two int functions to calculate each of their values and instead used one void function that
+// Passes in existing variables to execute the calculation (Muuuuuch easier than what I was trying to do.)
+void calcPieces(int numPieces, int pieces[], int bobCalc, int aliceCalc) {
     // Function to calculate Alice's value
-    int aliceCalc = 0;
     if (numPieces <= 15 && numPieces >= 1) {
         for(int j = 0; j < numPieces-1; j++) {
             for(int i = 0; i < numPieces-1; i++) {
@@ -58,29 +83,11 @@ int alicePieces(int numPieces, int pieces[]) {
                     pieces[i] = tmpNum;
                 }
             }
-            aliceCalc = 0 + pieces[j%1];
         }
     }
     return aliceCalc;
 }
 
-int bobPieces(int numPieces, int pieces[]) {
-    // Function to calculate Bob's value
-    int bobCalc = 0;
-    if (numPieces <= 15 && numPieces >= 1) {
-        for(int j = 0; j < numPieces-1; j++) {
-            for(int i = 0; i < numPieces-1; i++) {
-                if (pieces[i] > pieces[i+1]) {
-                    int tmpNum = pieces[i+1];
-                    pieces[i+1] = pieces[i];
-                    pieces[i] = tmpNum;
-                }
-            }
-            bobCalc = 0 + pieces[j%2];
-        }
-    }
-    return bobCalc;
-}
 
 void test() {
     // Test function
