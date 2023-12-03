@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
+#include <cassert>
 
 using namespace std;
 
@@ -20,8 +21,9 @@ using namespace std;
 
 // Instead of using two seperate functions to sort the array for each Bob and Alice,
 // I used one void function that utilizes boolean in order to sort the array.
-void sortPiecesArray(int numPieces, int pieces[], int tmpNum) {
+void sortPiecesArray(int numPieces, int pieces[]) {
     bool sort = false;
+    int tmpNum;
     if (numPieces <= 15 && numPieces >= 1) {
         for(int i = 0; i < numPieces - 1; i++) {
             sort = true;
@@ -59,6 +61,25 @@ void calcPieces(int numPieces, int pieces[], int &bobCalc, int &aliceCalc) {
 
 void test() {
     // Test function
+    int bobCalc = 0;
+    int aliceCalc = 0;
+    int numPieces1 = 3;
+    int pieces1[] = {5, 3, 8};
+    sortPiecesArray(numPieces1, pieces1);
+    calcPieces(numPieces1, pieces1, bobCalc, aliceCalc);
+    assert(aliceCalc == 11 && bobCalc == 5);
+
+    int numPieces2 = 4;
+    int pieces2[] = {6, 3, 9, 2};
+    sortPiecesArray(numPieces2, pieces2);
+    calcPieces(numPieces2, pieces2, bobCalc, aliceCalc);
+    assert(aliceCalc == 12 && bobCalc == 8);
+
+    int numPieces3 = 5;
+    int pieces3[] = {7, 3, 9, 2, 4};
+    sortPiecesArray(numPieces3, pieces3);
+    calcPieces(numPieces3, pieces3, bobCalc, aliceCalc);
+    assert(aliceCalc == 15 && bobCalc == 10);
 }
 
 int main(int argc, char* argv[]) {
@@ -67,7 +88,6 @@ int main(int argc, char* argv[]) {
         test(); 
     }
     else {
-        int tmpNum;
         int bobCalc = 0;
         int aliceCalc = 0;
         int numPieces;
@@ -80,7 +100,7 @@ int main(int argc, char* argv[]) {
             for(int i = 0; i < numPieces; i++) {
                 cin >> pieces[i];
         }
-        sortPiecesArray(numPieces, pieces, tmpNum);
+        sortPiecesArray(numPieces, pieces);
         calcPieces(numPieces, pieces, bobCalc, aliceCalc);
         delete[] pieces;
     }
