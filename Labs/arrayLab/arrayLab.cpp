@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
 void program() {
     size_t size;
     cout << "This program finds statistical values of some integers entered by the user.\n";
-    cout << "How many nubers would like to enter? ";
+    cout << "How many numbers would like to enter? ";
     cin >> size;
     int *nums = new int[size]; //declare a dynamic int array of size 
     int max, min;
@@ -55,7 +55,8 @@ void program() {
     printArray(nums, size);//print the array to check if the values are there
     findMaxAndMin(nums, size, max, min);
     printf("Max = %u\n", max);
-    //FIXME2: print Min value
+	printf("Min = %u\n", min);
+    //FIXME2: print Min value #fixed#
     printf("Sum = %lld\n",findSum(nums, size));
     cout << "Sorted list in ascending order:\n";
     bubbleSort(nums, size);
