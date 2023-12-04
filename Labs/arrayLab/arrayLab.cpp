@@ -59,7 +59,8 @@ void program() {
     printf("Sum = %lld\n",findSum(nums, size));
     cout << "Sorted list in ascending order:\n";
     bubbleSort(nums, size);
-    //FIXME3: print sorted array
+	printArray(nums, size);
+    //FIXME3: print sorted array #fixed#
 
     delete [] nums;
 }
@@ -87,10 +88,13 @@ void findMaxAndMin(int nums[], int len, int &max, int &min)
 	max = nums[0]; //say, max is the first element
 	min = nums[0]; //say, min is the first element
 	for (int i = 0; i < len; i++) {
-		if (max < nums[i]) //compare max with each element and update max if necessary
+		if (max < nums[i]) {//compare max with each element and update max if necessary
 			max = nums[i];
-
-		//FIXEME4: compare min with each element and update min
+		}
+		else if (min > nums[i]) {
+			min = nums[i];
+		}
+		//FIXEME4: compare min with each element and update min #fixed#
 	}
 }
 
@@ -104,11 +108,14 @@ void bubbleSort(int nums[], int len)
 		for (j = 0; j < len-i-1; j++) {
 			// if two adjacent numbers are not in order, swap 'em
 			if (nums[j] > nums[j+1]) {
-				//FIXME5: swap the values of nums[j] and nums[j+1]
-				// can use built-in swap or implement your own swap
-				sorted = false;
-			}
-		}
+                temp = nums[j];
+                nums[j] = nums[j+1];
+                nums[j+1] = temp;
+            }
+        }
+		//FIXME5: swap the values of nums[j] and nums[j+1] #fixed#
+		// can use built-in swap or implement your own swap
+		sorted = false;
 		if (sorted) break;
 	}
 }
