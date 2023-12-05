@@ -107,7 +107,7 @@ int main(int argc, char* argv[]) {
     else {
         cout << "Invalid number of values chosen." << endl;
     }
-    cout << "Alice total: " << aliceCalc << "   Bob total: " << bobCalc << endl;
+    cout << aliceCalc << " " << bobCalc << endl;
     }
     return 0;
 }
