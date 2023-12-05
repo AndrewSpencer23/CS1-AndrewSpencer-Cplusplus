@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
         string apaxPhrase;
         cout << "Please enter an Apaxian phrase in all lowercase letters to be processed and compacted: ";
         cin >> apaxPhrase;
-        cout << "\nYour simplified phrase is: " << splitPhrase(apaxPhrase) << "\n\n";
+        cout << splitPhrase(apaxPhrase) << endl;
     }
     return 0;
 }
