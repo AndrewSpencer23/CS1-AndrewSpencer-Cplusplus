@@ -1,8 +1,8 @@
 /*
     CS1 - Vector Lab
 
-    Updated by: FIXME1
-    Date: FIXME2
+    Updated by: Andrew Spencer FIXME1 #fixed#
+    Date: 12/02/23 FIXME2 #fixed#
 
     Program: Number system converter  
 
@@ -56,12 +56,18 @@ int main()
         choice = menuOption();
         switch(choice) {
             case 1:
-                // FIXME3
-                cout << "FIXME\n";
+                // FIXME3 #fixed#
+                cout << "Please enter a positive decimal number: ";
+                cin >> decimalNum;
+                binary = decToBin(decimalNum);
+                printf("(%llu) base 10 = (%s) base 2\n", decimalNum, binary.c_str());
                 break;
             case 2:
-                // FIXME4
-                cout << "FIXME\n";
+                // FIXME4 #fixed#
+                cout << "Please enter a positive binary number: ";
+                cin >> decimalNum;
+                binary = binToDec(binary);
+                printf("(%s) base 2 = (%llu) base 10\n", binary.c_str(), decimalNum);
                 break;
             case 3:
                 cout << "Enter a positive decimal number: ";
