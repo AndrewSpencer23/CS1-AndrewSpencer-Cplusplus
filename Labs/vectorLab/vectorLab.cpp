@@ -64,11 +64,10 @@ int main()
                 break;
             case 2:
                 // FIXME4 #fixed#
-                cout << "Please enter a positive binary number: ";
-                cin >> decimalNum;
-                binary = binToDec(binary);
+                cout << "Enter a positive binary number: ";
+                cin >> binary;
+                decimalNum = binToDec(binary);
                 printf("(%s) base 2 = (%llu) base 10\n", binary.c_str(), decimalNum);
-                break;
             case 3:
                 cout << "Enter a positive decimal number: ";
                 cin >> decimalNum;
@@ -106,7 +105,7 @@ string decToBin(llu num) {
         quotient = quotient/divisor;
         binary.push_back(remainder);
     }
-    // FIXME5 - use algorithm step in Ch03-StdInputOutput chapter
+    // FIXME5 - use algorithm step in Ch03-StdInputOutput chapter #fixed#
     // or use hint from decToOct function
     string ans = "";
     while(!binary.empty()) {
@@ -120,14 +119,22 @@ string decToBin(llu num) {
 
 llu binToDec(string binaryNumber)
 {
-    // FIXME6 - use algorithm described in Ch03-StdInputOutput chapter
-    // or use hints from binToOct function
-    return 0;
+    // FIXME6 #fixed#
+    llu ans = 0;
+    int exp;
+    // go from last digit to the first digit of octal number
+    for(int i = binaryNumber.size()-1; i>=0; i--) {
+        exp = binaryNumber.size()-1 - i;
+        int digit = int(binaryNumber[i]) - int('0');
+        // step 1 and 2
+        ans += digit*pow(2, exp);
+    }
+    return ans;
 }
 
 string decToOct(llu num)
 {
-    /*
+     /*
     Algorithm steps:
     1. repeteadly divide the decimal number by base 8 until the quotient becomes 0
     2. collect the remainder for each division
