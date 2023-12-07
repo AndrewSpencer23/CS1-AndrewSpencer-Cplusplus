@@ -2,11 +2,13 @@
 // Andrew Spencer
 
 #include <iostream>
-#include <string>
+#include <iomanip>
 #include <fstream>
-#include <sstream>
-#include "csci112in.txt"
-#include "csci112out.txt"
+#include <string>
+#include <cassert>
+#include <vector>
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -25,6 +27,6 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-int countLines(fstream& fs, int numLines) {
-    return numLines;
+int countLines(fstream& fs) {
+    return 0;
 }

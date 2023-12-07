@@ -1,8 +1,8 @@
 /*
     CS1 - File IO Lab
 
-    Updated by: FIXME1
-    Date: FIXME2 
+    Updated by: Andrew Spencer FIXME1 #fixed#
+    Date: Andrew Spencer FIXME2 #fixed#
 
     The program reads numbers from a file and finds statistical values from those numbers.
     Lab demonstrates the file io and vector application. 
@@ -53,8 +53,14 @@ int main(int argc, char* argv[]) {
 
 void readData(vector<int> & numbers, const string inputFileName) {
     // FIXME3: Open inputFileName for reading data
+    fstream fs;
+    fs.open("input.txt", ios_base::in);
+
     // read the data until eof marker and store each num into numbers vector
     int num;
+    while(!fs.eof()) {
+
+    }
 }
 
 void writeData(const vector<int> & numbers) {
