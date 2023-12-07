@@ -97,10 +97,25 @@ int main()
 }
 
 string decToBin(llu num) {
+    vector<int> binary;
+    int divisor = 2; // base 2
+    llu quotient = num;
+    int remainder;
+    while (quotient != 0) {
+        remainder = quotient%divisor;
+        quotient = quotient/divisor;
+        binary.push_back(remainder);
+    }
     // FIXME5 - use algorithm step in Ch03-StdInputOutput chapter
     // or use hint from decToOct function
-    
-    return to_string(num);
+    string ans = "";
+    while(!binary.empty()) {
+        // collect from the last element
+        ans += to_string(binary.back());
+        // remove the last element
+        binary.pop_back();
+    }
+    return ans;
 }
 
 llu binToDec(string binaryNumber)
