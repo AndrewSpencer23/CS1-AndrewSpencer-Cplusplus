@@ -48,8 +48,10 @@ void readVals(vector<person> &testScores, string inFileName) {
     while(!ifs.eof()) {
         string tempString;
         person student;
+
         getline(ifs, tempString);
         stringstream iss(tempString);
+
         for(size_t i = 0; i < 6; i++) {
             string testString;
             iss >> testString;
