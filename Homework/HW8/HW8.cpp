@@ -85,5 +85,4 @@ void writeVals(vector<person> &testScores, string outFileName) {
     fstream ofs;
     person student;
     ofs.open(outFileName, ios_base::out | ios_base::ate);
-
 }
