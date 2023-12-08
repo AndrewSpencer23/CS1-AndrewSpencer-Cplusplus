@@ -91,12 +91,10 @@ int main(int argc, char* argv[]) {
         int bobCalc = 0;
         int aliceCalc = 0;
         int numPieces;
-        cout << "Please enter the number of pieces to be divided amongst Bob and Alice: ";
         cin >> numPieces;
         int *pieces = new int[numPieces];
         // Calling getValues function
         if (numPieces <= 15 && numPieces >= 1) {
-            cout << "Please enter " << numPieces << " values to be divided seperated by a space: ";
             for(int i = 0; i < numPieces; i++) {
                 cin >> pieces[i];
         }
