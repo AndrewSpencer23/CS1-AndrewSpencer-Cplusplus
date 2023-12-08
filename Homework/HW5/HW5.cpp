@@ -118,9 +118,10 @@ int checkGuess(int guess, int randomNum)  {
 
 void test() {
     // How to do test cases for this one?
-    assert(checkGuess(5,7) == randomNumber());
-    assert(checkGuess(5,2) == randomNumber());
-    assert(checkGuess(5,6) == randomNumber());
-    assert(checkGuess(5,9) == randomNumber());
+    assert(checkGuess(5,7) == -1);
+    assert(checkGuess(5,2) == 2);
+    assert(checkGuess(5,6) == -1);
+    assert(checkGuess(5,9) == -1);
+    assert(checkGuess(5,5) == 0);
     cerr << "All test cases passed." << endl;
 }
