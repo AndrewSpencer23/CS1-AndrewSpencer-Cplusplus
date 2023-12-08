@@ -37,10 +37,10 @@ string splitPhrase(string apaxPhrase) {
     string compact_phrase = "";
     if (apaxPhrase.length() <= 250 && apaxPhrase.length() >= 1) {
         for (size_t i = 0; i < apaxPhrase.length() - 1; i++)  { 
-            if (apaxPhrase[i] != apaxPhrase[i + 1])  {
-                compact_phrase += apaxPhrase[i]; } 
+            if (apaxPhrase[i] != apaxPhrase.at(i + 1))  {
+                compact_phrase += apaxPhrase.at(i);} 
         }
-        compact_phrase += (apaxPhrase.length() - 1);
+        compact_phrase += apaxPhrase.at(apaxPhrase.length() - 1);
     }
     else {
         cout << "Your string cannot be processed, It is too long." << endl;
