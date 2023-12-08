@@ -29,7 +29,8 @@ int main(int argc, char* argv[]) {
 
     int numLines = 0;
     vector<person> number;
-    string inFileName, outFileName;
+    string inFileName;
+    string outFileName;
 
     cout << "Please enter an input file name: ";
     getline(cin, inFileName);
@@ -75,6 +76,14 @@ void readVals(vector<person> &testScores, string inFileName) {
                 student.score4 = stoi(testString);
             }
         }
-
+        testScores.push_back(student);
+        ifs.close();
     }
+}
+
+void writeVals(vector<person> &testScores, string outFileName) {
+    fstream ofs;
+    person student;
+    ofs.open(outFileName, ios_base::out | ios_base::ate);
+
 }
