@@ -26,7 +26,6 @@ int main(int argc, char* argv[]) {
     }
     else {
         string apaxPhrase;
-        cout << "Please enter an Apaxian phrase in all lowercase letters to be processed and compacted: ";
         cin >> apaxPhrase;
         cout << splitPhrase(apaxPhrase) << endl;
     }
@@ -37,10 +36,11 @@ int main(int argc, char* argv[]) {
 string splitPhrase(string apaxPhrase) {
     string compact_phrase = "";
     if (apaxPhrase.length() <= 250 && apaxPhrase.length() >= 1) {
-        for (size_t i = 0; i < apaxPhrase.length(); i++)  { 
+        for (size_t i = 0; i < apaxPhrase.length() - 1; i++)  { 
             if (apaxPhrase[i] != apaxPhrase[i + 1])  {
                 compact_phrase += apaxPhrase[i]; } 
-        } 
+        }
+        compact_phrase += (apaxPhrase.length() - 1);
     }
     else {
         cout << "Your string cannot be processed, It is too long." << endl;
