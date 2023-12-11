@@ -55,6 +55,7 @@ void clearScreen() {
 }
 
 int main(int argc, char* argv[]) {
+    clearScreen();
     char keepPlaying = 'Y';
     string fName;
     getName();
