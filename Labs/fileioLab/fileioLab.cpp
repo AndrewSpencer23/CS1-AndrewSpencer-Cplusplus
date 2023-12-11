@@ -52,14 +52,18 @@ int main(int argc, char* argv[]) {
 }
 
 void readData(vector<int> & numbers, const string inputFileName) {
-    // FIXME3: Open inputFileName for reading data
-    fstream fs;
-    fs.open("input.txt", ios_base::in);
-
+    // FIXME3: Open inputFileName for reading data #fixed#
+    fstream ifs;
+    ifs.open("input.txt", ios_base::in);
     // read the data until eof marker and store each num into numbers vector
     int num;
-    while(!fs.eof()) {
-
+    int counter = 0;
+    string tempString;
+    while(!ifs.eof()) {
+        getline(ifs, tempString);
+        num = stoi(tempString);
+        numbers.push_back(num);
+        counter++;
     }
 }
 
@@ -71,6 +75,12 @@ void writeData(const vector<int> & numbers) {
     2. Store and use the file name to open the file in write mode
     3. Write output as shown in output.txt file with proper formatting using iomanip
     */
+    cout << "Enter a file output name: ";
+    string outputFileName;
+    getline(cin, outputFileName);
+    
+    fstream ofs;
+    ofs.open(outputFileName, ios_base::out);
 }
 
 int findMax(const vector<int> & nums) {
