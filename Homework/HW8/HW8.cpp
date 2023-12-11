@@ -106,7 +106,7 @@ void readVals(vector<person> &testScores, string inFileName) {
         else if(gradeAvg <= 59 && gradeAvg >= 0) {
             student.letterGrade = 'F';
         }
-        
+
         testScores.push_back(student);
         ifs.close();
     }
@@ -118,7 +118,7 @@ void writeVals(vector<person> &testScores, string outFileName) {
     ofs.open(outFileName, ios_base::out);
     ofs << "=======================================================\nFName      LName       Test1   Test2   Test3   Test4   Average    Grade\n=======================================================\n";
     for(person student:testScores) {
-        ofs << left << setw(17) << student.fName << setw(19) << student.lName << setw(10) << student.score1 << setw(10) << student.score2 << setw(10) student.score3 << setw(10) << student.score4 <<
+        ofs << left << setw(17) << student.fName << setw(19) << student.lName << setw(10) << student.score1 << setw(10) << student.score2 << setw(10) << student.score3 << setw(10) << student.score4 << setw(6) << student.letterGrade << endl;
     }
 }
 
