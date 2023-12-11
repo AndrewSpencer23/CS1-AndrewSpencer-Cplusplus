@@ -117,30 +117,30 @@ void writeVals(vector<person> &testScores, string outFileName) {
     int numAs, numBs, numCs, numDs, numFs = 0;
     for(person student:testScores) {
         if((student.letterGrade = 'A')) {
-            numAs += 1;
+            numAs + 1;
         }
         else if((student.letterGrade = 'B')) {
-            numBs += 1;
+            numBs + 1;
         }
         else if((student.letterGrade = 'C')) {
-            numCs += 1;
+            numCs + 1;
         }
         else if((student.letterGrade = 'D')) {
-            numDs += 1;
+            numDs + 1;
         }
         else if((student.letterGrade = 'F')) {
-            numFs += 1;
+            numFs + 1;
         }
     }
     ofs.open(outFileName, ios_base::out);
-    ofs << "===================================================================================\nFName      LName       Test1   Test2   Test3   Test4   Average    Grade\n===================================================================================\n";
+    ofs << "===================================================================================\nFName    LName    Test1      Test2      Test3     Test4    Grade\n===================================================================================\n";
     for(person student:testScores) {
-        ofs << left << setw(17) << student.fName << setw(19) << student.lName << setw(10) << student.score1 << setw(10) << student.score2 << setw(10) << student.score3 << setw(10) << student.score4 << setw(6) << student.letterGrade << endl;
+        ofs << left << setw(10) << student.fName << setw(10) << student.lName << setw(10) << student.score1 << setw(10) << student.score2 << setw(10) << student.score3 << setw(10) << student.score4 << setw(6) << student.letterGrade << endl;
     }
-    ofs << "**********************************************************************************\n" << endl;
-    ofs << "Class Average Score:     " << left << setw(8) << averageScore1(testScores) << setw(8) << averageScore2(testScores) << setw(8) << averageScore3(testScores) << setw(8) << averageScore4(testScores) << endl;
-    ofs << "Class Maximum Score:     " << locateMaximumScore1(testScores) << setw(8) << locateMaximumScore2(testScores) << setw(8) << locateMaximumScore3(testScores) << setw(8) << locateMaximumScore4(testScores) << endl;
-    ofs << "Class Minimum Score:     " << locateMinimumScore1(testScores) << setw(8) << locateMinimumScore2(testScores) << setw(8) << locateMinimumScore3(testScores) << setw(8) << locateMinimumScore4(testScores) << endl;
+    ofs << "**********************************************************************************" << endl;
+    ofs << "Class Average Score:   " << left << setw(8) << averageScore1(testScores) << setw(8) << averageScore2(testScores) << setw(8) << averageScore3(testScores) << setw(8) << averageScore4(testScores) << endl;
+    ofs << "Class Maximum Score:   " << locateMaximumScore1(testScores) << setw(8) << locateMaximumScore2(testScores) << setw(8) << locateMaximumScore3(testScores) << setw(8) << locateMaximumScore4(testScores) << endl;
+    ofs << "Class Minimum Score:   " << locateMinimumScore1(testScores) << setw(8) << locateMinimumScore2(testScores) << setw(8) << locateMinimumScore3(testScores) << setw(8) << locateMinimumScore4(testScores) << endl;
     ofs << "**********************************************************************************" << endl;
     ofs << "Total As:   " << left << setw(8) << numAs << endl;
     ofs << "Total Bs:   " << left << setw(8) << numBs << endl;
