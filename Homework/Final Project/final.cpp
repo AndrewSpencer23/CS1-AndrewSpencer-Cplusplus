@@ -18,7 +18,7 @@ bool checkWinOther(char board[3][3]);
 int main(int argc, char *argv[]) {
     char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     for(int i = 0; i < 9; i++) {
-        if(checkWinColumn(board)) {
+        if(checkWinColumn(board) == true) {
             break;
         }
         else {
@@ -46,7 +46,6 @@ void printBoard(char board[3][3]) {
 void getLocation(char board[3][3]) {
     int pos1, pos2;
     cout << "\nPlease enter a position in the form of two numbers seperated by a space: ";
-    cin >> 
 }
 
 bool checkWinColumn(char board[3][3]) {
@@ -69,11 +68,11 @@ bool checkWinColumn(char board[3][3]) {
     }
 }
 
-void checkWinRow(char board[3][3]) {
+bool checkWinRow(char board[3][3]) {
 
 }
 
-void checkWinOther(char board[3][3]) {
+bool checkWinOther(char board[3][3]) {
 
 }
 
