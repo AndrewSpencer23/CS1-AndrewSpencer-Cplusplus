@@ -18,7 +18,7 @@ bool checkWinOther(char board[3][3]);
 int main(int argc, char *argv[]) {
     char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     for(int i = 0; i < 9; i++) {
-        if(checkWinColumn(board) == true) {
+        if(checkWinColumn(board) == true || checkWinRow(board) == true) {
             break;
         }
         else {
@@ -66,10 +66,28 @@ bool checkWinColumn(char board[3][3]) {
     else {
         cout << "There is no winner yet." << endl;
     }
+    return winner;
 }
 
 bool checkWinRow(char board[3][3]) {
-
+    bool winner = false;
+    for(size_t i = 0; i < 3; i++) {
+        if(board[0][i] != ' ') {
+            if(board[0][i] == board[i][2]) {
+                if(board[i][1] == board[i][2]) {
+                    winner = true;
+                    break;
+                }
+            }
+        }
+    }
+    if(winner) {
+        cout << "There is a winner!" << endl;
+    }
+    else {
+        cout << "There is no winner yet." << endl;
+    }
+    return winner;
 }
 
 bool checkWinOther(char board[3][3]) {
