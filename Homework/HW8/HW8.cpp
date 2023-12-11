@@ -28,15 +28,15 @@ float averageScore3(vector<person>);
 float averageScore4(vector<person>);
 float findMeanScore(person);
 
-float locateMaximum1(vector<person>);
-float locateMaximum2(vector<person>);
-float locateMaximum3(vector<person>);
-float locateMaximum4(vector<person>);
+float locateMaximumScore1(vector<person>);
+float locateMaximumScore2(vector<person>);
+float locateMaximumScore3(vector<person>);
+float locateMaximumScore4(vector<person>);
 
-float locateMinimum1(vector<person>);
-float locateMinimum2(vector<person>);
-float locateMinimum3(vector<person>);
-float locateMinimum4(vector<person>);
+float locateMinimumScore1(vector<person>);
+float locateMinimumScore2(vector<person>);
+float locateMinimumScore3(vector<person>);
+float locateMinimumScore4(vector<person>);
 
 int main(int argc, char* argv[]) {
 
@@ -89,7 +89,6 @@ void readVals(vector<person> &testScores, string inFileName) {
                 student.score4 = stoi(testString);
             }
         }
-
         float gradeAvg = ((student.score1 + student.score2 + student.score3 + student.score4)/4);
         if(gradeAvg <= 100 && gradeAvg >= 90) {
             student.letterGrade = 'A';
@@ -162,4 +161,49 @@ float findMeanScore(person student) {
     float meanScore;
     meanScore = ((student.score1 + student.score2 + student.score3 + student.score4)/4);
     return meanScore;
+}
+
+float locateMinimumScore1(vector<person> &testScores) {
+    float minimumTestScore;
+    minimumTestScore = testScores[0].score1;
+    for(person student:testScores) {
+        minimumTestScore = (student.score1 < minimumTestScore) ? student.score1:minimumTestScore;
+    }
+    return minimumTestScore;
+}
+
+float locateMinimumScore2(vector<person> &testScores) {
+    float minimumTestScore;
+    minimumTestScore = testScores[0].score2;
+    for(person student:testScores) {
+        minimumTestScore = (student.score2 < minimumTestScore) ? student.score2:minimumTestScore;
+    }
+    return minimumTestScore;
+}
+
+float locateMinimumScore3(vector<person> &testScores) {
+    float minimumTestScore;
+    minimumTestScore = testScores[0].score3;
+    for(person student:testScores) {
+        minimumTestScore = (student.score3 < minimumTestScore) ? student.score3:minimumTestScore;
+    }
+    return minimumTestScore;
+}
+
+float locateMinimumScore4(vector<person> &testScores) {
+    float minimumTestScore;
+    minimumTestScore = testScores[0].score4;
+    for(person student:testScores) {
+        minimumTestScore = (student.score4 < minimumTestScore) ? student.score4:minimumTestScore;
+    }
+    return minimumTestScore;
+}
+
+float locateMaximumScore1(vector<person> &testScores) {
+    float maximumTestScore;
+    maximumTestScore = testScores[0].score1;
+    for(person student:testScores) {
+        maximumTestScore = (student.score4 < maximumTestScore) ? student.score4:maximumTestScore;
+    }
+    return maximumTestScore;
 }
