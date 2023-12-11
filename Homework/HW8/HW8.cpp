@@ -16,7 +16,7 @@ struct person {
     string fName;
     string lName;
     int score1, score2, score3, score4;
-    char letterGrade1, letterGrade2, letterGrade3, letterGrade4;
+    char letterGrade;
 };
 
 void readVals(vector<person>, string);
@@ -78,77 +78,35 @@ void readVals(vector<person> &testScores, string inFileName) {
             }
             else if(i == 2) {
                 student.score1 = stoi(testString);
-                if(student.score1 <= 100 && student.score1 >= 90) {
-                    student.letterGrade1 = 'A';
-                }
-                else if(student.score1 <= 90 && student.score1 >= 80) {
-                    student.letterGrade1 = 'B';
-                }
-                else if(student.score1 <= 80 && student.score1 >= 70) {
-                    student.letterGrade1 = 'C';
-                }
-                else if(student.score1 <= 70 && student.score1 >= 60) {
-                    student.letterGrade1 = 'D';
-                }
-                else if(student.score1 <= 59 && student.score1 >= 0) {
-                    student.letterGrade1 = 'F';
-                }
             }
             else if(i == 3) {
                 student.score2 = stoi(testString);
-                if(student.score2 <= 100 && student.score2 >= 90) {
-                    student.letterGrade2 = 'A';
-                }
-                else if(student.score2 <= 90 && student.score2 >= 80) {
-                    student.letterGrade2 = 'B';
-                }
-                else if(student.score2 <= 80 && student.score2 >= 70) {
-                    student.letterGrade2 = 'C';
-                }
-                else if(student.score2 <= 70 && student.score2 >= 60) {
-                    student.letterGrade2 = 'D';
-                }
-                else if(student.score2 <= 59 && student.score2 >= 0) {
-                    student.letterGrade2 = 'F';
-                }
             }
             else if(i == 4) {
                 student.score3 = stoi(testString);
-                if(student.score3 <= 100 && student.score3 >= 90) {
-                    student.letterGrade3 = 'A';
-                }
-                else if(student.score3 <= 90 && student.score1 >= 80) {
-                    student.letterGrade3 = 'B';
-                }
-                else if(student.score3 <= 80 && student.score3 >= 70) {
-                    student.letterGrade3 = 'C';
-                }
-                else if(student.score3 <= 70 && student.score3 >= 60) {
-                    student.letterGrade3 = 'D';
-                }
-                else if(student.score3 <= 59 && student.score3 >= 0) {
-                    student.letterGrade3 = 'F';
-                }
             }
             else if(i == 5) {
                 student.score4 = stoi(testString);
-                if(student.score4 <= 100 && student.score4 >= 90) {
-                    student.letterGrade4 = 'A';
-                }
-                else if(student.score4 <= 90 && student.score4 >= 80) {
-                    student.letterGrade4 = 'B';
-                }
-                else if(student.score4 <= 80 && student.score4 >= 70) {
-                    student.letterGrade4 = 'C';
-                }
-                else if(student.score4 <= 70 && student.score4 >= 60) {
-                    student.letterGrade4 = 'D';
-                }
-                else if(student.score4 <= 59 && student.score4 >= 0) {
-                    student.letterGrade4 = 'F';
-                }
             }
         }
+
+        float gradeAvg = ((student.score1 + student.score2 + student.score3 + student.score4)/4);
+        if(gradeAvg <= 100 && gradeAvg >= 90) {
+            student.letterGrade = 'A';
+        }
+        else if(gradeAvg <= 90 && gradeAvg >= 80) {
+            student.letterGrade = 'B';
+        }
+        else if(gradeAvg <= 80 && gradeAvg >= 70) {
+            student.letterGrade = 'C';
+        }
+        else if(gradeAvg <= 70 && gradeAvg >= 60) {
+            student.letterGrade = 'D';
+        }
+        else if(gradeAvg <= 59 && gradeAvg >= 0) {
+            student.letterGrade = 'F';
+        }
+        
         testScores.push_back(student);
         ifs.close();
     }
@@ -158,6 +116,10 @@ void writeVals(vector<person> &testScores, string outFileName) {
     fstream ofs;
     person student;
     ofs.open(outFileName, ios_base::out);
+    ofs << "=======================================================\nFName      LName       Test1   Test2   Test3   Test4   Average    Grade\n=======================================================\n";
+    for(person student:testScores) {
+        ofs << left << setw(17) << student.fName << setw(19) << student.lName << setw(10) << student.score1 << setw(10) << student.score2 << setw(10) student.score3 << setw(10) << student.score4 <<
+    }
 }
 
 float averageScore1(vector<person> &testScores) {
