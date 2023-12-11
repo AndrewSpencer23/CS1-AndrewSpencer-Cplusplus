@@ -10,12 +10,21 @@
 using namespace std;
 
 void printBoard(char [][3]);
+void getLocation(char [][3]);
 
 int main(int argc, char *argv[]) {
     char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
     printBoard(board);
-    
+
+    for(int i = 0; i < 9, i++) {
+        if() {
+            // If there is a winner, stop the game
+        }
+        else {
+            // Otherwise, run the program, prompt the user
+        }
+    }
     return 0;
 }
 
@@ -33,3 +42,5 @@ void printBoard(char board[3][3]) {
         cout << setfill(' ');
     }
 }
+
+
