@@ -19,24 +19,24 @@ struct person {
     char letterGrade;
 };
 
-void readVals(vector<person>, string);
-void writeVals(vector<person>, string);
+void readVals(vector<person> &testScores, string inFileName);
+void writeVals(vector<person> &testScores, string outFileName);
 
-float averageScore1(vector<person>);
-float averageScore2(vector<person>);
-float averageScore3(vector<person>);
-float averageScore4(vector<person>);
-float findMeanScore(person);
+float averageScore1(vector<person> &testScores);
+float averageScore2(vector<person> &testScores);
+float averageScore3(vector<person> &testScores);
+float averageScore4(vector<person> &testScores);
+float findMeanScore(person student);
 
-float locateMaximumScore1(vector<person>);
-float locateMaximumScore2(vector<person>);
-float locateMaximumScore3(vector<person>);
-float locateMaximumScore4(vector<person>);
+float locateMaximumScore1(vector<person> &testScores);
+float locateMaximumScore2(vector<person> &testScores);
+float locateMaximumScore3(vector<person> &testScores);
+float locateMaximumScore4(vector<person> &testScores);
 
-float locateMinimumScore1(vector<person>);
-float locateMinimumScore2(vector<person>);
-float locateMinimumScore3(vector<person>);
-float locateMinimumScore4(vector<person>);
+float locateMinimumScore1(vector<person> &testScores);
+float locateMinimumScore2(vector<person> &testScores);
+float locateMinimumScore3(vector<person> &testScores);
+float locateMinimumScore4(vector<person> &testScores);
 
 int main(int argc, char* argv[]) {
 
@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
     getline(cin, inFileName);
     readVals(number, inFileName);
     
-    cout << "\n\n Please enter an output file name: ";
+    cout << "\nPlease enter an output file name: ";
     getline(cin, outFileName);
     writeVals(number, outFileName);
 
@@ -107,24 +107,14 @@ void readVals(vector<person> &testScores, string inFileName) {
         }
 
         testScores.push_back(student);
-        ifs.close();
     }
+    ifs.close();
 }
 
 void writeVals(vector<person> &testScores, string outFileName) {
     fstream ofs;
     person student;
     int numAs, numBs, numCs, numDs, numFs = 0;
-    ofs.open(outFileName, ios_base::out);
-    ofs << "=======================================================\nFName      LName       Test1   Test2   Test3   Test4   Average    Grade\n=======================================================\n";
-    for(person student:testScores) {
-        ofs << left << setw(17) << student.fName << setw(19) << student.lName << setw(10) << student.score1 << setw(10) << student.score2 << setw(10) << student.score3 << setw(10) << student.score4 << setw(6) << student.letterGrade << endl;
-    }
-    ofs << "******************************************************\n" << endl;
-    ofs << "Class Average Score:     " << left << setw(8) << averageScore1(testScores) << setw(8) << averageScore2(testScores) << setw(8) << averageScore3(testScores) << setw(8) << averageScore4(testScores) << endl;
-    ofs << "Class Maximum Score:     " << locateMaximumScore1(testScores) << setw(8) << locateMaximumScore2(testScores) << setw(8) << locateMaximumScore3(testScores) << setw(8) << locateMaximumScore4(testScores) << endl;
-    ofs << "Class Minimum Score:     " << locateMinimumScore1(testScores) << setw(8) << locateMinimumScore2(testScores) << setw(8) << locateMinimumScore3(testScores) << setw(8) << locateMinimumScore4(testScores) << endl;
-
     for(person student:testScores) {
         if((student.letterGrade = 'A')) {
             numAs += 1;
@@ -142,6 +132,16 @@ void writeVals(vector<person> &testScores, string outFileName) {
             numFs += 1;
         }
     }
+    ofs.open(outFileName, ios_base::out);
+    ofs << "===================================================================================\nFName      LName       Test1   Test2   Test3   Test4   Average    Grade\n===================================================================================\n";
+    for(person student:testScores) {
+        ofs << left << setw(17) << student.fName << setw(19) << student.lName << setw(10) << student.score1 << setw(10) << student.score2 << setw(10) << student.score3 << setw(10) << student.score4 << setw(6) << student.letterGrade << endl;
+    }
+    ofs << "**********************************************************************************\n" << endl;
+    ofs << "Class Average Score:     " << left << setw(8) << averageScore1(testScores) << setw(8) << averageScore2(testScores) << setw(8) << averageScore3(testScores) << setw(8) << averageScore4(testScores) << endl;
+    ofs << "Class Maximum Score:     " << locateMaximumScore1(testScores) << setw(8) << locateMaximumScore2(testScores) << setw(8) << locateMaximumScore3(testScores) << setw(8) << locateMaximumScore4(testScores) << endl;
+    ofs << "Class Minimum Score:     " << locateMinimumScore1(testScores) << setw(8) << locateMinimumScore2(testScores) << setw(8) << locateMinimumScore3(testScores) << setw(8) << locateMinimumScore4(testScores) << endl;
+    ofs << "**********************************************************************************" << endl;
     ofs << "Total As:   " << left << setw(8) << numAs << endl;
     ofs << "Total Bs:   " << left << setw(8) << numBs << endl;
     ofs << "Total Cs:   " << left << setw(8) << numCs << endl;
