@@ -102,10 +102,7 @@ bool checkWinColumn(char board[3][3]) {
         }
     }
     if(winner) {
-        cout << "There is a winner!" << endl;
-    }
-    else {
-        cout << "There is no winner yet." << endl;
+        cout << "There is a winner in a column!" << endl;
     }
     return winner;
 }
@@ -123,15 +120,12 @@ bool checkWinRow(char board[3][3]) {
         }
     }
     if(winner) {
-        cout << "There is a winner!" << endl;
-    }
-    else {
-        cout << "There is no winner yet." << endl;
+        cout << "There is a winner in a row!" << endl;
     }
     return winner;
 }
 
-bool checkWinOther(char board[3][3]) {
+bool checkWinDiagonal(char board[3][3]) {
     bool winner = false;
     for(size_t i = 0; i < 3; i++) {
         if(board[0][i] != ' ') {
@@ -144,10 +138,7 @@ bool checkWinOther(char board[3][3]) {
         }
     }
     if(winner) {
-        cout << "There is a winner!" << endl;
-    }
-    else {
-        cout << "There is no winner yet." << endl;
+        cout << "There is a winner in diagonal!" << endl;
     }
     return winner;
 }
