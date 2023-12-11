@@ -16,16 +16,27 @@ struct person {
     string fName;
     string lName;
     int score1, score2, score3, score4;
-    char letterGrade;
+    char letterGrade1, letterGrade2, letterGrade3, letterGrade4;
 };
 
-float calcAvg(person);
 void readVals(vector<person>, string);
 void writeVals(vector<person>, string);
+
 float averageScore1(vector<person>);
 float averageScore2(vector<person>);
 float averageScore3(vector<person>);
 float averageScore4(vector<person>);
+float findMeanScore(person);
+
+float locateMaximum1(vector<person>);
+float locateMaximum2(vector<person>);
+float locateMaximum3(vector<person>);
+float locateMaximum4(vector<person>);
+
+float locateMinimum1(vector<person>);
+float locateMinimum2(vector<person>);
+float locateMinimum3(vector<person>);
+float locateMinimum4(vector<person>);
 
 int main(int argc, char* argv[]) {
 
@@ -68,74 +79,73 @@ void readVals(vector<person> &testScores, string inFileName) {
             else if(i == 2) {
                 student.score1 = stoi(testString);
                 if(student.score1 <= 100 && student.score1 >= 90) {
-                    student.letterGrade = 'A';
+                    student.letterGrade1 = 'A';
                 }
                 else if(student.score1 <= 90 && student.score1 >= 80) {
-                    student.letterGrade = 'B';
+                    student.letterGrade1 = 'B';
                 }
                 else if(student.score1 <= 80 && student.score1 >= 70) {
-                    student.letterGrade = 'C';
+                    student.letterGrade1 = 'C';
                 }
                 else if(student.score1 <= 70 && student.score1 >= 60) {
-                    student.letterGrade = 'D';
+                    student.letterGrade1 = 'D';
                 }
                 else if(student.score1 <= 59 && student.score1 >= 0) {
-                    student.letterGrade = 'F';
+                    student.letterGrade1 = 'F';
                 }
-                
             }
             else if(i == 3) {
                 student.score2 = stoi(testString);
                 if(student.score2 <= 100 && student.score2 >= 90) {
-                    student.letterGrade = 'A';
+                    student.letterGrade2 = 'A';
                 }
                 else if(student.score2 <= 90 && student.score2 >= 80) {
-                    student.letterGrade = 'B';
+                    student.letterGrade2 = 'B';
                 }
                 else if(student.score2 <= 80 && student.score2 >= 70) {
-                    student.letterGrade = 'C';
+                    student.letterGrade2 = 'C';
                 }
                 else if(student.score2 <= 70 && student.score2 >= 60) {
-                    student.letterGrade = 'D';
+                    student.letterGrade2 = 'D';
                 }
                 else if(student.score2 <= 59 && student.score2 >= 0) {
-                    student.letterGrade = 'F';
+                    student.letterGrade2 = 'F';
                 }
             }
             else if(i == 4) {
                 student.score3 = stoi(testString);
                 if(student.score3 <= 100 && student.score3 >= 90) {
-                    student.letterGrade = 'A';
+                    student.letterGrade3 = 'A';
                 }
                 else if(student.score3 <= 90 && student.score1 >= 80) {
-                    student.letterGrade = 'B';
+                    student.letterGrade3 = 'B';
                 }
                 else if(student.score3 <= 80 && student.score3 >= 70) {
-                    student.letterGrade = 'C';
+                    student.letterGrade3 = 'C';
                 }
                 else if(student.score3 <= 70 && student.score3 >= 60) {
-                    student.letterGrade = 'D';
+                    student.letterGrade3 = 'D';
                 }
                 else if(student.score3 <= 59 && student.score3 >= 0) {
-                    student.letterGrade = 'F';
+                    student.letterGrade3 = 'F';
                 }
             }
             else if(i == 5) {
                 student.score4 = stoi(testString);
                 if(student.score4 <= 100 && student.score4 >= 90) {
-                    student.letterGrade = 'A';
+                    student.letterGrade4 = 'A';
                 }
                 else if(student.score4 <= 90 && student.score4 >= 80) {
-                    student.letterGrade = 'B';
+                    student.letterGrade4 = 'B';
                 }
                 else if(student.score4 <= 80 && student.score4 >= 70) {
-                    student.letterGrade = 'C';
+                    student.letterGrade4 = 'C';
                 }
                 else if(student.score4 <= 70 && student.score4 >= 60) {
-                    student.letterGrade = 'D';
+                    student.letterGrade4 = 'D';
                 }
                 else if(student.score4 <= 59 && student.score4 >= 0) {
-                    student.letterGrade = 'F';
+                    student.letterGrade4 = 'F';
                 }
             }
         }
@@ -148,4 +158,46 @@ void writeVals(vector<person> &testScores, string outFileName) {
     fstream ofs;
     person student;
     ofs.open(outFileName, ios_base::out);
+}
+
+float averageScore1(vector<person> &testScores) {
+    float averageScore = 0;
+    for(person student:testScores) {
+        averageScore += student.score1;
+    }
+    averageScore = averageScore/testScores.size();
+    return averageScore;
+}
+
+float averageScore2(vector<person> &testScores) {
+    float averageScore = 0;
+    for(person student:testScores) {
+        averageScore += student.score2;
+    }
+    averageScore = averageScore/testScores.size();
+    return averageScore;
+}
+
+float averageScore3(vector<person> &testScores) {
+    float averageScore = 0;
+    for(person student:testScores) {
+        averageScore += student.score3;
+    }
+    averageScore = averageScore/testScores.size();
+    return averageScore;
+}
+
+float averageScore4(vector<person> &testScores) {
+    float averageScore = 0;
+    for(person student:testScores) {
+        averageScore += student.score4;
+    }
+    averageScore = averageScore/testScores.size();
+    return averageScore;
+}
+
+float findMeanScore(person student) {
+    float meanScore;
+    meanScore = ((student.score1 + student.score2 + student.score3 + student.score4)/4);
+    return meanScore;
 }
