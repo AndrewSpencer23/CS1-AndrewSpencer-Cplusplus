@@ -203,6 +203,33 @@ float locateMaximumScore1(vector<person> &testScores) {
     float maximumTestScore;
     maximumTestScore = testScores[0].score1;
     for(person student:testScores) {
+        maximumTestScore = (student.score1 < maximumTestScore) ? student.score1:maximumTestScore;
+    }
+    return maximumTestScore;
+}
+
+float locateMaximumScore2(vector<person> &testScores) {
+    float maximumTestScore;
+    maximumTestScore = testScores[0].score2;
+    for(person student:testScores) {
+        maximumTestScore = (student.score2 < maximumTestScore) ? student.score2:maximumTestScore;
+    }
+    return maximumTestScore;
+}
+
+float locateMaximumScore3(vector<person> &testScores) {
+    float maximumTestScore;
+    maximumTestScore = testScores[0].score3;
+    for(person student:testScores) {
+        maximumTestScore = (student.score3 < maximumTestScore) ? student.score3:maximumTestScore;
+    }
+    return maximumTestScore;
+}
+
+float locateMaximumScore4(vector<person> &testScores) {
+    float maximumTestScore;
+    maximumTestScore = testScores[0].score4;
+    for(person student:testScores) {
         maximumTestScore = (student.score4 < maximumTestScore) ? student.score4:maximumTestScore;
     }
     return maximumTestScore;
