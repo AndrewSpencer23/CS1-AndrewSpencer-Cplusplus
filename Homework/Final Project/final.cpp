@@ -9,7 +9,6 @@
 
 using namespace std;
 
-void test();
 void printMenu(void);
 void printBoard(char board[3][3]);
 void getLocation(char board[3][3]);
@@ -29,8 +28,7 @@ void clearScreen() {
 int main(int argc, char *argv[]) {
     char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     bool keepRunning = true;
-    if(argc == 2 && string(argv[1]) == "test") {
-        test();
+    if(argc == 2 && string(argv[1]) == "exit") {
         exit(EXIT_SUCCESS); // exit the program
     }
     else {
@@ -149,7 +147,7 @@ bool program(char board[3][3]) {
     // display menu options
     printGameMenu();
     do {
-        if (cin >> option && option >= 1 && option <= 8) {
+        if (cin >> option && option >= 1 && option <= 10) {
             break;
         }
         else {
@@ -176,7 +174,7 @@ bool program(char board[3][3]) {
         {
             printBoard(board);
             cout << "Enter an X or an O: ";
-            cin >> board[1][0];
+            cin >> board[0][1];
             printBoard(board);
             checkWinColumn(board);
             checkWinRow(board);
@@ -187,7 +185,7 @@ bool program(char board[3][3]) {
         {
             printBoard(board);
             cout << "Enter an X or an O: ";
-            cin >> board[2][0];
+            cin >> board[0][2];
             printBoard(board);
             checkWinColumn(board);
             checkWinRow(board);
@@ -199,7 +197,7 @@ bool program(char board[3][3]) {
         {
             printBoard(board);
             cout << "Enter an X or an O: ";
-            cin >> board[0][1];
+            cin >> board[1][0];
             printBoard(board);
             checkWinColumn(board);
             checkWinRow(board);
@@ -223,7 +221,7 @@ bool program(char board[3][3]) {
         {
             printBoard(board);
             cout << "Enter an X or an O: ";
-            cin >> board[2][1];
+            cin >> board[1][2];
             printBoard(board);
             checkWinColumn(board);
             checkWinRow(board);
