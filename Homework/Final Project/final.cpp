@@ -164,12 +164,54 @@ bool program(char board[3][3]) {
             printBoard(board);
             cout << "Enter an X or an O: ";
             cin >> board[0][0];
-            printBoard(board);
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
+            if((board[0][0] != ' ')) {
+                if((board[0][0] = 'X')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    if((board[1][1] != ' ')) {
+                        board[1][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[0][1] != ' ')) {
+                        board[0][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                }
+            }
+            else if((board[0][0] != ' ')) {
+                if((board[0][0] = '0')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    if((board[1][1] != ' ')) {
+                        board[1][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[0][1] != ' ')) {
+                        board[0][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                }
+            }
         case 2:
         {
             printBoard(board);
@@ -191,7 +233,6 @@ bool program(char board[3][3]) {
             checkWinRow(board);
             checkWinDiagonal(board);
             break;
-            break;
         }
         case 4:
         {
@@ -202,7 +243,6 @@ bool program(char board[3][3]) {
             checkWinColumn(board);
             checkWinRow(board);
             checkWinDiagonal(board);
-            break;
             break;
         }
         case 5:
@@ -215,7 +255,6 @@ bool program(char board[3][3]) {
             checkWinRow(board);
             checkWinDiagonal(board);
             break;
-            break;
         }
         case 6:
         {
@@ -227,18 +266,38 @@ bool program(char board[3][3]) {
             checkWinRow(board);
             checkWinDiagonal(board);
             break;
-            break;
         }
         case 7:
         {
             printBoard(board);
             cout << "Enter an X or an O: ";
             cin >> board[0][2];
-            printBoard(board);
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
+            if((board[0][2] != ' ')) {
+                if((board[0][2] = 'X')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    board[1][1] = 'O';
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                }
+            }
+            else if((board[0][2] != ' ')) {
+                if((board[0][2] = '0')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    board[1][1] = 'X';
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                }
+            }
             break;
         }
         case 8:
@@ -251,7 +310,6 @@ bool program(char board[3][3]) {
             checkWinRow(board);
             checkWinDiagonal(board);
             break;
-            break;
         }
         case 9:
         {
@@ -263,13 +321,11 @@ bool program(char board[3][3]) {
             checkWinRow(board);
             checkWinDiagonal(board);
             break;
-            break;
         }
         case 10:
             default:
             return false; // exit the program
         }
     return true;
+    }
 }
-
-
