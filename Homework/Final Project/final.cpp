@@ -16,7 +16,7 @@ void getLocation(char board[3][3]);
 bool checkWinColumn(char board[3][3]);
 bool checkWinRow(char board[3][3]);
 bool checkWinOther(char board[3][3]);
-bool program();
+bool program(char board[3][3]);
 void clearScreen() {
     // use "cls" in windows and "clear" command in Mac and Linux
     #ifdef _WIN32
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
     else {
         // this loop will keep the program running until user wants to quit
         while (true) {
-            if (!program()) // call program
+            if (!program(board)) // call program
                 break; // break loop if program returned false
             cin.ignore(100, '\n');
             cout << "Enter to continue...";
@@ -143,7 +143,7 @@ bool checkWinDiagonal(char board[3][3]) {
     return winner;
 }
 
-bool program() {
+bool program(char board[3][3]) {
     int option = 1; // variable to store user entered option
     double num1=0, num2=0; // variables to store two numbers entered by user
     // display menu options
@@ -163,38 +163,108 @@ bool program() {
     switch(option) {
         case 1:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[0][0];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
             break;
         }
         case 2:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[1][0];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
             break;
         }
         case 3:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[2][0];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
+            break;
             break;
         }
         case 4:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[0][1];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
+            break;
             break;
         }
         case 5:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[1][1];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
+            break;
             break;
         }
         case 6:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[2][1];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
+            break;
             break;
         }
         case 7:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[0][2];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
+            break;
             break;
         }
         case 8:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[1][2];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
+            break;
             break;
         }
         case 9:
         {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[2][2];
+            printBoard(board);
+            checkWinColumn(board);
+            checkWinRow(board);
+            checkWinDiagonal(board);
+            break;
             break;
         }
         case 10:
