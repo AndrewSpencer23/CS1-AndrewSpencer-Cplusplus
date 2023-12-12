@@ -204,9 +204,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -219,9 +216,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'X';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -241,9 +235,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -256,9 +247,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'X';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -278,9 +266,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -293,9 +278,6 @@ bool program(char board[3][3]) {
                     if((board[2][2] = ' ')) {
                         board[2][2] = 'X';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -315,9 +297,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -330,9 +309,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'X';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -352,9 +328,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -367,9 +340,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'X';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -389,9 +359,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -404,9 +371,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'X';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -426,9 +390,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -441,9 +402,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'X';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -463,9 +421,6 @@ bool program(char board[3][3]) {
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'O';
                         printBoard(board);
-                        checkWinColumn(board);
-                        checkWinRow(board);
-                        checkWinDiagonal(board);
                     }
                 }
             }
@@ -477,8 +432,8 @@ bool program(char board[3][3]) {
                     checkWinDiagonal(board);
                     if((board[0][0] = ' ')) {
                         board[0][0] = 'X';
+                        printBoard(board);
                     }
-                    printBoard(board);
                 }
             }
             break;
