@@ -89,16 +89,16 @@ void readVals(vector<person> &testScores, string inFileName) {
             }
         }
         float gradeAvg = ((student.score1 + student.score2 + student.score3 + student.score4)/4);
-        if(gradeAvg <= 100 && gradeAvg >= 90) {
+        if(gradeAvg >= 90) {
             student.letterGrade = 'A';
         }
-        else if(gradeAvg <= 90 && gradeAvg >= 80) {
+        else if(gradeAvg >= 80) {
             student.letterGrade = 'B';
         }
-        else if(gradeAvg <= 80 && gradeAvg >= 70) {
+        else if(gradeAvg >= 70) {
             student.letterGrade = 'C';
         }
-        else if(gradeAvg <= 70 && gradeAvg >= 60) {
+        else if(gradeAvg >= 60) {
             student.letterGrade = 'D';
         }
         else if(gradeAvg <= 59 && gradeAvg >= 0) {
@@ -113,22 +113,26 @@ void readVals(vector<person> &testScores, string inFileName) {
 void writeVals(vector<person> &testScores, string outFileName) {
     fstream ofs;
     person student;
-    int numAs, numBs, numCs, numDs, numFs = 0;
+    int numAs = 0;
+    int numBs = 0;
+    int numCs = 0;
+    int numDs = 0;
+    int numFs = 0;
     for(person student:testScores) {
         if((student.letterGrade = 'A')) {
-            numAs + 1;
+            numAs += 1;
         }
         else if((student.letterGrade = 'B')) {
-            numBs + 1;
+            numBs += 1;
         }
         else if((student.letterGrade = 'C')) {
-            numCs + 1;
+            numCs += 1;
         }
         else if((student.letterGrade = 'D')) {
-            numDs + 1;
+            numDs += 1;
         }
         else if((student.letterGrade = 'F')) {
-            numFs + 1;
+            numFs += 1;
         }
     }
     ofs.open(outFileName, ios_base::out);
