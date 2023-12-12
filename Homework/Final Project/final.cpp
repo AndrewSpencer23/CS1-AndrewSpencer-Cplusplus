@@ -15,7 +15,7 @@ void getLocation(char board[3][3]);
 bool checkWinColumn(char board[3][3]);
 bool checkWinRow(char board[3][3]);
 bool checkWinOther(char board[3][3]);
-bool program(char board[3][3]);
+bool program(char board[3][3], bool winner);
 void clearScreen() {
     // use "cls" in windows and "clear" command in Mac and Linux
     #ifdef _WIN32
@@ -27,14 +27,14 @@ void clearScreen() {
 
 int main(int argc, char *argv[]) {
     char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
-    bool keepRunning = true;
+    bool winner = false;
     if(argc == 2 && string(argv[1]) == "exit") {
         exit(EXIT_SUCCESS); // exit the program
     }
     else {
         // this loop will keep the program running until user wants to quit
         while (true) {
-            if (!program(board)) // call program
+            if (!program(board, winner)) // call program
                 break; // break loop if program returned false
             cin.ignore(100, '\n');
             cout << "Press enter to continue... Think about your next move...";
@@ -90,7 +90,7 @@ void getLocation(char board[3][3]) {
 bool checkWinColumn(char board[3][3]) {
     bool winner = false;
     for(size_t i = 0; i < 3; i++) {
-        if(board[0][i] != ' ') {
+        if(board[i][0] != ' ') {
             if(board[i][0] == board[2][i]) {
                 if(board[1][i] == board[2][i]) {
                     winner = true;
@@ -134,9 +134,8 @@ bool checkWinDiagonal(char board[3][3]) {
 
 bool program(char board[3][3], bool winner) {
     int option = 1; // variable to store user entered option
-    double num1=0, num2=0; // variables to store two numbers entered by user
     // display menu options
-    if(winner == false) {
+    if(checkWinColumn(board) == false && checkWinRow(board) == false && checkWinDiagonal(board) == false) {
         printGameMenu();
         do {
             if (cin >> option && option >= 1 && option <= 10) {
@@ -164,9 +163,6 @@ bool program(char board[3][3], bool winner) {
                     board[0][1] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 2:
@@ -182,9 +178,6 @@ bool program(char board[3][3], bool winner) {
                     board[1][1] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 3:
@@ -200,9 +193,6 @@ bool program(char board[3][3], bool winner) {
                     board[2][1] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 4:
@@ -218,9 +208,6 @@ bool program(char board[3][3], bool winner) {
                     board[2][2] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 5:
@@ -236,9 +223,6 @@ bool program(char board[3][3], bool winner) {
                     board[2][0] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 6:
@@ -254,9 +238,6 @@ bool program(char board[3][3], bool winner) {
                     board[1][0] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 7:
@@ -272,9 +253,6 @@ bool program(char board[3][3], bool winner) {
                     board[0][2] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 8:
@@ -290,9 +268,6 @@ bool program(char board[3][3], bool winner) {
                     board[1][2] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 9:
@@ -308,9 +283,6 @@ bool program(char board[3][3], bool winner) {
                     board[0][0] = 'X';
                     printBoard(board);
                 }
-                checkWinColumn(board);
-                checkWinRow(board);
-                checkWinDiagonal(board);
                 break;
             }
             case 10:
@@ -318,10 +290,10 @@ bool program(char board[3][3], bool winner) {
                 return false; // exit the program
             }
             return true;
-    }
-    else {
-        cout << "There is a winner!!! Congratulations!!" << endl;
-        exit(EXIT_SUCCESS);
-    }
+        }
+        else {
+            cout << "There is a winner!!! Congratulations!!" << endl << endl;
+            exit(EXIT_SUCCESS);
+        }
 }
     
