@@ -14,11 +14,11 @@ Bill      Kool      65        75        65        66        D
 Alice     Wood      44        75        88        99        C     
 **********************************************************************************
 Class Average Score:   73.0909 86.1818 85.2727 79.1818 
-Class Maximum Score:    070      65      0       
-Class Minimum Score:    070      65      0       
+Class Maximum Score:   100     100     100     99      
+Class Minimum Score:   0       70      65      0       
 **********************************************************************************
 Total As:   2       
-Total Bs:   -1      
+Total Bs:   22013   
 Total Cs:   0       
 Total Ds:   0       
 Total Fs:   0       

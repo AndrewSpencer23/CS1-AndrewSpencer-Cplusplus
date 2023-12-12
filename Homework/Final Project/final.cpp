@@ -170,8 +170,309 @@ bool program(char board[3][3]) {
                     checkWinColumn(board);
                     checkWinRow(board);
                     checkWinDiagonal(board);
-                    if((board[1][1] != ' ')) {
+                    if((board[0][1] != ' ')) {
+                        board[0][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[0][2] != ' ')) {
+                        board[0][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][0] != ' ')) {
+                        board[1][0] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][1] != ' ')) {
                         board[1][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][2] != ' ')) {
+                        board[1][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][0] != ' ')) {
+                        board[2][0] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][1] != ' ')) {
+                        board[2][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][2] != ' ')) {
+                        board[2][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                }
+            }
+            else if((board[0][0] != ' ')) {
+                if((board[0][0] = 'O')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    if((board[0][1] != ' ')) {
+                        board[0][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[0][2] != ' ')) {
+                        board[0][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][0] != ' ')) {
+                        board[1][0] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][1] != ' ')) {
+                        board[1][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][2] != ' ')) {
+                        board[1][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][0] != ' ')) {
+                        board[2][0] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][1] != ' ')) {
+                        board[2][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][2] != ' ')) {
+                        board[2][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                }
+            }
+        }
+        case 2:
+        {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[0][1];
+            if((board[0][1] != ' ')) {
+                if((board[0][1] = 'X')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    if((board[0][0] != ' ')) {
+                        board[0][0] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[0][2] != ' ')) {
+                        board[0][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][0] != ' ')) {
+                        board[1][0] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][1] != ' ')) {
+                        board[1][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][2] != ' ')) {
+                        board[1][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][0] != ' ')) {
+                        board[2][0] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][1] != ' ')) {
+                        board[2][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][2] != ' ')) {
+                        board[2][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                }
+            }
+            else if((board[0][1] != ' ')) {
+                if((board[0][1] = 'O')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    if((board[0][0] != ' ')) {
+                        board[0][0] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[0][2] != ' ')) {
+                        board[0][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][0] != ' ')) {
+                        board[1][0] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][1] != ' ')) {
+                        board[1][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][2] != ' ')) {
+                        board[1][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][0] != ' ')) {
+                        board[2][0] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][1] != ' ')) {
+                        board[2][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][2] != ' ')) {
+                        board[2][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                }
+            }
+        }
+        case 3:
+        {
+            {
+            printBoard(board);
+            cout << "Enter an X or an O: ";
+            cin >> board[0][2];
+            if((board[0][2] != ' ')) {
+                if((board[0][2] = 'X')) {
+                    printBoard(board);
+                    checkWinColumn(board);
+                    checkWinRow(board);
+                    checkWinDiagonal(board);
+                    if((board[0][0] != ' ')) {
+                        board[0][0] = 'O';
                         printBoard(board);
                         checkWinColumn(board);
                         checkWinRow(board);
@@ -186,16 +487,64 @@ bool program(char board[3][3]) {
                         checkWinDiagonal(board);
                         break;
                     }
+                    else if((board[1][0] != ' ')) {
+                        board[1][0] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][1] != ' ')) {
+                        board[1][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][2] != ' ')) {
+                        board[1][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][0] != ' ')) {
+                        board[2][0] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][1] != ' ')) {
+                        board[2][1] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][2] != ' ')) {
+                        board[2][2] = 'O';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
                 }
             }
-            else if((board[0][0] != ' ')) {
-                if((board[0][0] = '0')) {
+            else if((board[0][2] != ' ')) {
+                if((board[0][2] = 'O')) {
                     printBoard(board);
                     checkWinColumn(board);
                     checkWinRow(board);
                     checkWinDiagonal(board);
-                    if((board[1][1] != ' ')) {
-                        board[1][1] = 'X';
+                    if((board[0][0] != ' ')) {
+                        board[0][0] = 'X';
                         printBoard(board);
                         checkWinColumn(board);
                         checkWinRow(board);
@@ -210,29 +559,57 @@ bool program(char board[3][3]) {
                         checkWinDiagonal(board);
                         break;
                     }
+                    else if((board[1][0] != ' ')) {
+                        board[1][0] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][1] != ' ')) {
+                        board[1][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[1][2] != ' ')) {
+                        board[1][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][0] != ' ')) {
+                        board[2][0] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][1] != ' ')) {
+                        board[2][1] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
+                    else if((board[2][2] != ' ')) {
+                        board[2][2] = 'X';
+                        printBoard(board);
+                        checkWinColumn(board);
+                        checkWinRow(board);
+                        checkWinDiagonal(board);
+                        break;
+                    }
                 }
             }
-        case 2:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[0][1];
-            printBoard(board);
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
         }
-        case 3:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[0][2];
-            printBoard(board);
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
         }
         case 4:
         {
@@ -327,5 +704,5 @@ bool program(char board[3][3]) {
             return false; // exit the program
         }
     return true;
-    }
 }
+
