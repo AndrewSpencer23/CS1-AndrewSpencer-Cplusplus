@@ -99,9 +99,6 @@ bool checkWinColumn(char board[3][3]) {
             }
         }
     }
-    if(winner) {
-        cout << "There is a winner in a column!" << endl;
-    }
     return winner;
 }
 
@@ -116,9 +113,6 @@ bool checkWinRow(char board[3][3]) {
                 }
             }
         }
-    }
-    if(winner) {
-        cout << "There is a winner in a row!" << endl;
     }
     return winner;
 }
@@ -135,195 +129,199 @@ bool checkWinDiagonal(char board[3][3]) {
             }
         }
     }
-    if(winner) {
-        cout << "There is a winner in diagonal!" << endl;
-    }
     return winner;
 }
 
-bool program(char board[3][3]) {
+bool program(char board[3][3], bool winner) {
     int option = 1; // variable to store user entered option
     double num1=0, num2=0; // variables to store two numbers entered by user
     // display menu options
-    printGameMenu();
-    do {
-        if (cin >> option && option >= 1 && option <= 10) {
-            break;
-        }
-        else {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "Invalid option, please enter a value between 1 and 10" << endl;
-        }
-    } while (true);
-            
-    // Call the function(s) or perform some operations based on user input
-    switch(option) {
-        case 1:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[0][0];
-            if(board[0][0] == 'X') {
-                board[0][1] = 'O';
-                printBoard(board);
+    if(winner == false) {
+        printGameMenu();
+        do {
+            if (cin >> option && option >= 1 && option <= 10) {
+                break;
             }
-            if(board[0][0] == 'O') {
-                board[0][1] = 'X';
-                printBoard(board);
+            else {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "Invalid option, please enter a value between 1 and 10" << endl;
             }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 2:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[0][1];
-            if(board[0][1] == 'X') {
-                board[1][1] = 'O';
+        } while (true);
+                
+        // Call the function(s) or perform some operations based on user input
+        switch(option) {
+            case 1:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[0][0];
+                if(board[0][0] == 'X') {
+                    board[0][1] = 'O';
+                    printBoard(board);
+                }
+                if(board[0][0] == 'O') {
+                    board[0][1] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            if(board[0][1] == 'O') {
-                board[1][1] = 'X';
+            case 2:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[0][1];
+                if(board[0][1] == 'X') {
+                    board[1][1] = 'O';
+                    printBoard(board);
+                }
+                if(board[0][1] == 'O') {
+                    board[1][1] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 3:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[0][2];
-            if(board[0][2] == 'X') {
-                board[2][1] = 'O';
+            case 3:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[0][2];
+                if(board[0][2] == 'X') {
+                    board[2][1] = 'O';
+                    printBoard(board);
+                }
+                if(board[0][2] == 'O') {
+                    board[2][1] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            if(board[0][2] == 'O') {
-                board[2][1] = 'X';
+            case 4:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[1][0];
+                if(board[1][0] == 'X') {
+                    board[2][2] = 'O';
+                    printBoard(board);
+                }
+                if(board[1][0] == 'O') {
+                    board[2][2] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 4:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[1][0];
-            if(board[1][0] == 'X') {
-                board[2][2] = 'O';
+            case 5:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[1][1];
+                if(board[1][1] == 'X') {
+                    board[2][0] = 'O';
+                    printBoard(board);
+                }
+                if(board[1][1] == 'O') {
+                    board[2][0] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            if(board[1][0] == 'O') {
-                board[2][2] = 'X';
+            case 6:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[1][2];
+                if(board[1][2] == 'X') {
+                    board[1][0] = 'O';
+                    printBoard(board);
+                }
+                if(board[1][2] == 'O') {
+                    board[1][0] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 5:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[1][1];
-            if(board[1][1] == 'X') {
-                board[2][0] = 'O';
+            case 7:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[2][0];
+                if(board[2][0] == 'X') {
+                    board[0][2] = 'O';
+                    printBoard(board);
+                }
+                if(board[2][0] == 'O') {
+                    board[0][2] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            if(board[1][1] == 'O') {
-                board[2][0] = 'X';
+            case 8:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[2][1];
+                if(board[2][1] == 'X') {
+                    board[1][2] = 'O';
+                    printBoard(board);
+                }
+                if(board[2][1] == 'O') {
+                    board[1][2] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 6:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[1][2];
-            if(board[1][2] == 'X') {
-                board[1][0] = 'O';
+            case 9:
+            {
                 printBoard(board);
+                cout << "Enter an X or an O: ";
+                cin >> board[2][2];
+                if(board[2][2] == 'X') {
+                    board[0][0] = 'O';
+                    printBoard(board);
+                }
+                if(board[2][2] == 'O') {
+                    board[0][0] = 'X';
+                    printBoard(board);
+                }
+                checkWinColumn(board);
+                checkWinRow(board);
+                checkWinDiagonal(board);
+                break;
             }
-            if(board[1][2] == 'O') {
-                board[1][0] = 'X';
-                printBoard(board);
+            case 10:
+                default:
+                return false; // exit the program
             }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 7:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[2][0];
-            if(board[2][0] == 'X') {
-                board[0][2] = 'O';
-                printBoard(board);
-            }
-            if(board[2][0] == 'O') {
-                board[0][2] = 'X';
-                printBoard(board);
-            }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 8:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[2][1];
-            if(board[2][1] == 'X') {
-                board[1][2] = 'O';
-                printBoard(board);
-            }
-            if(board[2][1] == 'O') {
-                board[1][2] = 'X';
-                printBoard(board);
-            }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 9:
-        {
-            printBoard(board);
-            cout << "Enter an X or an O: ";
-            cin >> board[2][2];
-            if(board[2][2] == 'X') {
-                board[0][0] = 'O';
-                printBoard(board);
-            }
-            if(board[2][2] == 'O') {
-                board[0][0] = 'X';
-                printBoard(board);
-            }
-            checkWinColumn(board);
-            checkWinRow(board);
-            checkWinDiagonal(board);
-            break;
-        }
-        case 10:
-            default:
-            return false; // exit the program
-        }
-        return true;
+            return true;
+    }
+    else {
+        cout << "There is a winner!!! Congratulations!!" << endl;
+        exit(EXIT_SUCCESS);
+    }
 }
+    
