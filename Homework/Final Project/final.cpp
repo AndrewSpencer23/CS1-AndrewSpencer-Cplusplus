@@ -16,8 +16,8 @@ bool checkWinColumn(char board[3][3]);
 bool checkWinRow(char board[3][3]);
 bool checkWinOther(char board[3][3]);
 bool program(char board[3][3], bool winner);
+
 void clearScreen() {
-    // use "cls" in windows and "clear" command in Mac and Linux
     #ifdef _WIN32
         system("clS");
     #else
@@ -29,13 +29,12 @@ int main(int argc, char *argv[]) {
     char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     bool winner = false;
     if(argc == 2 && string(argv[1]) == "exit") {
-        exit(EXIT_SUCCESS); // exit the program
+        exit(EXIT_SUCCESS);
     }
     else {
-        // this loop will keep the program running until user wants to quit
         while (true) {
-            if (!program(board, winner)) // call program
-                break; // break loop if program returned false
+            if (!program(board, winner))
+                break;
             cin.ignore(100, '\n');
             cout << "Press enter to continue... Think about your next move...";
             cin.get();
@@ -133,8 +132,7 @@ bool checkWinDiagonal(char board[3][3]) {
 }
 
 bool program(char board[3][3], bool winner) {
-    int option = 1; // variable to store user entered option
-    // display menu options
+    int option = 1;
     if(checkWinColumn(board) == false && checkWinRow(board) == false && checkWinDiagonal(board) == false) {
         printGameMenu();
         do {
@@ -147,8 +145,7 @@ bool program(char board[3][3], bool winner) {
                 cout << "Invalid option, please enter a value between 1 and 10" << endl;
             }
         } while (true);
-                
-        // Call the function(s) or perform some operations based on user input
+
         switch(option) {
             case 1:
             {
@@ -287,7 +284,7 @@ bool program(char board[3][3], bool winner) {
             }
             case 10:
                 default:
-                return false; // exit the program
+                return false;
             }
             return true;
         }
