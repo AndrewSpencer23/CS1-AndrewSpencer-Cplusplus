@@ -17,8 +17,8 @@ Class Average Score:   73.0909 86.1818 85.2727 79.1818
 Class Maximum Score:   100     100     100     99      
 Class Minimum Score:   0       70      65      0       
 **********************************************************************************
-Total As:   2       
-Total Bs:   22013   
-Total Cs:   0       
-Total Ds:   0       
-Total Fs:   0       
+Total As:   4       
+Total Bs:   3       
+Total Cs:   2       
+Total Ds:   1       
+Total Fs:   1       

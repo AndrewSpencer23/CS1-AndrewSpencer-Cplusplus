@@ -119,19 +119,19 @@ void writeVals(vector<person> &testScores, string outFileName) {
     int numDs = 0;
     int numFs = 0;
     for(person student:testScores) {
-        if((student.letterGrade = 'A')) {
+        if(student.letterGrade == 'A') {
             numAs += 1;
         }
-        else if((student.letterGrade = 'B')) {
+        else if(student.letterGrade == 'B') {
             numBs += 1;
         }
-        else if((student.letterGrade = 'C')) {
+        else if(student.letterGrade == 'C') {
             numCs += 1;
         }
-        else if((student.letterGrade = 'D')) {
+        else if(student.letterGrade == 'D') {
             numDs += 1;
         }
-        else if((student.letterGrade = 'F')) {
+        else if(student.letterGrade == 'F') {
             numFs += 1;
         }
     }
