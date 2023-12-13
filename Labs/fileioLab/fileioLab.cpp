@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
 void readData(vector<int> & numbers, const string inputFileName) {
     // FIXME3: Open inputFileName for reading data #fixed#
     fstream ifs;
-    ifs.open("input.txt", ios_base::in);
+    ifs.open(inputFileName, ios_base::in);
     // read the data until eof marker and store each num into numbers vector
     int num;
     int counter = 0;
@@ -93,9 +93,9 @@ void writeData(const vector<int> & numbers) {
     }
 
     ofs << endl << endl;
-    ofs << "========================================\n          Statistical Results          \n========================================\n";
+    ofs << "========================================\n           Statistical Results          \n========================================\n";
     ofs << "Max     Min     Mean     Median    Range\n";
-    ofs << left << findMax(numbers) << setw(8) << findMin(numbers) << setw(8) << findMean(numbers) << setw(8) << findMedian(numbers) << setw(8) << findRange(numbers) << endl;
+    ofs << findMax(numbers) << setw(8) << findMin(numbers) << setw(11) << findMean(numbers) << setw(8) << findMedian(numbers) << setw(8) << findRange(numbers) << endl;
 }
 
 int findMax(const vector<int> & nums) {
