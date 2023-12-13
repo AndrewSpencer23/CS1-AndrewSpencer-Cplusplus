@@ -60,6 +60,7 @@ void printGameMenu(void) {
     cout << "[8] Enter an X or an O in the 8th square\n";
     cout << "[9] Enter an X or an O in the 9th square\n";
     cout << "[10] Exit the game\n";
+    cout << "[11] DO NOT PRESS THIS WHATEVER YOU DO!\n";
     cout << "Enter one of the game options [1-10]: ";
 }
 
@@ -136,13 +137,13 @@ bool program(char board[3][3], bool winner) {
     if(checkWinColumn(board) == false && checkWinRow(board) == false && checkWinDiagonal(board) == false) {
         printGameMenu();
         do {
-            if (cin >> option && option >= 1 && option <= 10) {
+            if (cin >> option && option >= 1 && option <= 11) {
                 break;
             }
             else {
                 cin.clear();
                 cin.ignore(1000, '\n');
-                cout << "Invalid option, please enter a value between 1 and 10" << endl;
+                cout << "Invalid option, please enter a value between 1 and 11" << endl;
             }
         } while (true);
 

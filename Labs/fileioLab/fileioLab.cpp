@@ -81,6 +81,21 @@ void writeData(const vector<int> & numbers) {
     
     fstream ofs;
     ofs.open(outputFileName, ios_base::out);
+
+    ofs << "List of numbers: ";
+    bool firstNum = true;
+    for(int num:numbers) {
+        if(firstNum == false) {
+            ofs << " ";
+        }
+        firstNum = false;
+        ofs << num;
+    }
+
+    ofs << endl << endl;
+    ofs << "========================================\n          Statistical Results          \n========================================\n";
+    ofs << "Max     Min     Mean     Median    Range\n";
+    ofs << left << findMax(numbers) << setw(8) << findMin(numbers) << setw(8) << findMean(numbers) << setw(8) << findMedian(numbers) << setw(8) << findRange(numbers) << endl;
 }
 
 int findMax(const vector<int> & nums) {
@@ -91,8 +106,11 @@ int findMax(const vector<int> & nums) {
 }
 
 int findMin(const vector<int> & nums) {
-    // FIXME5 - implement function to find and return min value from nums vector
-    return 0;
+    // FIXME5 - implement function to find and return min value from nums vector #fixed#
+    int min = nums[0];
+    for(int n: nums)
+        min = (n<min) ? n : min;
+    return min;
 } 
 
 float findMean(const vector<int> & nums) {
@@ -104,9 +122,11 @@ float findMean(const vector<int> & nums) {
 }
 
 int findRange(const vector<int> & nums) {
-    // FIXME6 - implement function that finds and returns the range value
+    // FIXME6 - implement function that finds and returns the range value #fixed#
     // range = max - min
-    return 0;
+    int range;
+    range = findMax(nums) - findMin(nums);
+    return range;
 }
 
 float findMedian(vector<int> nums) {
@@ -130,7 +150,8 @@ void test() {
     assert(fabs(findMean(numbers1) -1.6667) <= EPSILON  );
     assert(findMax(numbers1) == 10);
     assert(findMedian(numbers1) == 5);
-    // FIXME7: Write at least two test cases for other functions
-
+    assert(findMin(numbers1) == -10);
+    assert(findRange(numbers1) == 20);
+    // FIXME7: Write at least two test cases for other functions #fixed#
     cerr << "all test cases passed!\n";
 }
