@@ -50,15 +50,15 @@ int main(int argc, char *argv[]) {
 
 void printGameMenu(void) {
     cout << "\n\nGame options:\n";
-    cout << "[1] Enter an X in the 1st square\n";
-    cout << "[2] Enter an X in the 2nd square\n";
-    cout << "[3] Enter an X in the 3rd square\n";
-    cout << "[4] Enter an X in the 4th square\n";
-    cout << "[5] Enter an X in the 5th square\n";
-    cout << "[6] Enter an X in the 6th square\n";
-    cout << "[7] Enter an X in the 7th square\n";
-    cout << "[8] Enter an X in the 8th square\n";
-    cout << "[9] Enter an X in the 9th square\n";
+    cout << "[1] Enter an X or an O in the 1st square\n";
+    cout << "[2] Enter an X or an O in the 2nd square\n";
+    cout << "[3] Enter an X or an O in the 3rd square\n";
+    cout << "[4] Enter an X or an O in the 4th square\n";
+    cout << "[5] Enter an X or an O in the 5th square\n";
+    cout << "[6] Enter an X or an O in the 6th square\n";
+    cout << "[7] Enter an X or an O in the 7th square\n";
+    cout << "[8] Enter an X or an O in the 8th square\n";
+    cout << "[9] Enter an X or an O in the 9th square\n";
     cout << "[10] Exit the game\n";
     cout << "Enter one of the game options [1-10]: ";
 }
