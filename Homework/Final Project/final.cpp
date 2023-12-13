@@ -60,7 +60,7 @@ void printGameMenu(void) {
     cout << "[8] Enter an X or an O in the 8th square\n";
     cout << "[9] Enter an X or an O in the 9th square\n";
     cout << "[10] Exit the game\n";
-    cout << "[11] DO NOT PRESS THIS WHATEVER YOU DO!\n";
+    cout << "[11] DO NOT PRESS THIS WHATEVER YOU DO!!! DO NOT!!\n";
     cout << "Enter one of the game options [1-10]: ";
 }
 
@@ -284,6 +284,12 @@ bool program(char board[3][3], bool winner) {
                 break;
             }
             case 10:
+            {
+                cout << "I TOLD YOU NOT TO PRESS THIS!!! NOW GET HIT WITH AN ASTERISK BOMB!!!!\n**************************************************\n*****************************************\n*******************************\n*******************\n" << endl;
+                cout << "\nNOW DON'T CHOOSE 10 AGAIN!!" << endl;
+                break;
+            }
+            case 11:
                 default:
                 return false;
             }
