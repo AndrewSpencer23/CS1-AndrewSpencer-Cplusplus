@@ -1,4 +1,4 @@
-# CS1-ALSpencer-Home
+# CS1-AndrewSpencer-Cplusplus
 
 | Andrew | Spencer |
 |:---|:---|
