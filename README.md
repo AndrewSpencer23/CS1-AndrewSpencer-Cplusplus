@@ -4,10 +4,9 @@
 |:---|:---|
 | **Course** | CSCI111 - CS1: Foundations of Computer Science |
 | **Section** | 3 |
-| **Semester** | Fall 2020 |
-| **Student** | A Student |
-| **Mav Username**            | astudent |
-| **GitHub Username**         | gituser123 |
+| **Semester** | Fall 2023 |
+| **Student** | Andrew Spencer |
+| **Mav Username**            | alspencer |
 | **Repository**          | https://github.com/AndrewSpencer23/CS1-ALSpencer |
 
 ## Assignments
